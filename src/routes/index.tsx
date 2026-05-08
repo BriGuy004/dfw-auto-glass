@@ -2,19 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-windshield.jpg";
 import mobileImg from "@/assets/mobile-service.jpg";
 import mirrorImg from "@/assets/side-mirror.jpg";
+import { buildSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   component: Index,
-  head: () => ({
-    meta: [
-      { title: "DFW Auto Glass Pros | Windshield Repair & Replacement in Dallas-Fort Worth" },
-      {
-        name: "description",
-        content:
-          "Mobile auto glass repair and windshield replacement across the DFW Metroplex. Fast, affordable, on-site service in Dallas, Fort Worth, Plano, Arlington and beyond.",
-      },
-    ],
-  }),
+  head: () =>
+    buildSeo({
+      description:
+        "Cracked windshield in Dallas? Same-day mobile windshield replacement and repair across DFW. ADAS calibration, no insurance required. Free quotes — call or text photos.",
+      canonical: "/",
+    }),
 });
 
 const PHONE = "(214) 555-0123";
