@@ -10,33 +10,526 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as LocationsIndexRouteImport } from './routes/locations/index'
+import { Route as LearnIndexRouteImport } from './routes/learn/index'
+import { Route as ServicesWindshieldReplacementRouteImport } from './routes/services/windshield-replacement'
+import { Route as ServicesWindshieldRepairRouteImport } from './routes/services/windshield-repair'
+import { Route as ServicesSunroofGlassRepairRouteImport } from './routes/services/sunroof-glass-repair'
+import { Route as ServicesSideWindowReplacementRouteImport } from './routes/services/side-window-replacement'
+import { Route as ServicesSameDayServiceRouteImport } from './routes/services/same-day-service'
+import { Route as ServicesMobileAutoGlassRouteImport } from './routes/services/mobile-auto-glass'
+import { Route as ServicesCommercialFleetGlassRouteImport } from './routes/services/commercial-fleet-glass'
+import { Route as ServicesClassicCarGlassRouteImport } from './routes/services/classic-car-glass'
+import { Route as ServicesBackWindowReplacementRouteImport } from './routes/services/back-window-replacement'
+import { Route as ServicesAdasCalibrationRouteImport } from './routes/services/adas-calibration'
+import { Route as LocationsRichardsonRouteImport } from './routes/locations/richardson'
+import { Route as LocationsPlanoRouteImport } from './routes/locations/plano'
+import { Route as LocationsMesquiteRouteImport } from './routes/locations/mesquite'
+import { Route as LocationsLewisvilleRouteImport } from './routes/locations/lewisville'
+import { Route as LocationsIrvingRouteImport } from './routes/locations/irving'
+import { Route as LocationsGarlandRouteImport } from './routes/locations/garland'
+import { Route as LocationsDallasRouteImport } from './routes/locations/dallas'
+import { Route as LocationsCarrolltonRouteImport } from './routes/locations/carrollton'
+import { Route as LearnWindshieldWiperIssuesAfterReplacementRouteImport } from './routes/learn/windshield-wiper-issues-after-replacement'
+import { Route as LearnWindshieldReplacementCostDallasRouteImport } from './routes/learn/windshield-replacement-cost-dallas'
+import { Route as LearnWindshieldRepairVsReplacementRouteImport } from './routes/learn/windshield-repair-vs-replacement'
+import { Route as LearnWhySomeClaimsNotFullyCoveredRouteImport } from './routes/learn/why-some-claims-not-fully-covered'
+import { Route as LearnTexasWindshieldLawsRouteImport } from './routes/learn/texas-windshield-laws'
+import { Route as LearnSideWindowReplacementProcessRouteImport } from './routes/learn/side-window-replacement-process'
+import { Route as LearnQualityAutoGlassInstallerSignsRouteImport } from './routes/learn/quality-auto-glass-installer-signs'
+import { Route as LearnOemVsAftermarketWindshieldRouteImport } from './routes/learn/oem-vs-aftermarket-windshield'
+import { Route as LearnNewWindshieldCureTimeRouteImport } from './routes/learn/new-windshield-cure-time'
+import { Route as LearnMobileAutoGlassServiceExplainedRouteImport } from './routes/learn/mobile-auto-glass-service-explained'
+import { Route as LearnInsuranceWindshieldReplacementTexasRouteImport } from './routes/learn/insurance-windshield-replacement-texas'
+import { Route as LearnHowLongWindshieldReplacementTakesRouteImport } from './routes/learn/how-long-windshield-replacement-takes'
+import { Route as LearnHailDamageWindshieldOptionsRouteImport } from './routes/learn/hail-damage-windshield-options'
+import { Route as LearnCrackedWindshieldHowLongDriveRouteImport } from './routes/learn/cracked-windshield-how-long-drive'
+import { Route as LearnAdasCalibrationExplainedRouteImport } from './routes/learn/adas-calibration-explained'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsIndexRoute = LocationsIndexRouteImport.update({
+  id: '/locations/',
+  path: '/locations/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnIndexRoute = LearnIndexRouteImport.update({
+  id: '/learn/',
+  path: '/learn/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesWindshieldReplacementRoute =
+  ServicesWindshieldReplacementRouteImport.update({
+    id: '/services/windshield-replacement',
+    path: '/services/windshield-replacement',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesWindshieldRepairRoute =
+  ServicesWindshieldRepairRouteImport.update({
+    id: '/services/windshield-repair',
+    path: '/services/windshield-repair',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesSunroofGlassRepairRoute =
+  ServicesSunroofGlassRepairRouteImport.update({
+    id: '/services/sunroof-glass-repair',
+    path: '/services/sunroof-glass-repair',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesSideWindowReplacementRoute =
+  ServicesSideWindowReplacementRouteImport.update({
+    id: '/services/side-window-replacement',
+    path: '/services/side-window-replacement',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesSameDayServiceRoute = ServicesSameDayServiceRouteImport.update({
+  id: '/services/same-day-service',
+  path: '/services/same-day-service',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesMobileAutoGlassRoute = ServicesMobileAutoGlassRouteImport.update({
+  id: '/services/mobile-auto-glass',
+  path: '/services/mobile-auto-glass',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesCommercialFleetGlassRoute =
+  ServicesCommercialFleetGlassRouteImport.update({
+    id: '/services/commercial-fleet-glass',
+    path: '/services/commercial-fleet-glass',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesClassicCarGlassRoute = ServicesClassicCarGlassRouteImport.update({
+  id: '/services/classic-car-glass',
+  path: '/services/classic-car-glass',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesBackWindowReplacementRoute =
+  ServicesBackWindowReplacementRouteImport.update({
+    id: '/services/back-window-replacement',
+    path: '/services/back-window-replacement',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesAdasCalibrationRoute = ServicesAdasCalibrationRouteImport.update({
+  id: '/services/adas-calibration',
+  path: '/services/adas-calibration',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsRichardsonRoute = LocationsRichardsonRouteImport.update({
+  id: '/locations/richardson',
+  path: '/locations/richardson',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsPlanoRoute = LocationsPlanoRouteImport.update({
+  id: '/locations/plano',
+  path: '/locations/plano',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsMesquiteRoute = LocationsMesquiteRouteImport.update({
+  id: '/locations/mesquite',
+  path: '/locations/mesquite',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsLewisvilleRoute = LocationsLewisvilleRouteImport.update({
+  id: '/locations/lewisville',
+  path: '/locations/lewisville',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsIrvingRoute = LocationsIrvingRouteImport.update({
+  id: '/locations/irving',
+  path: '/locations/irving',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsGarlandRoute = LocationsGarlandRouteImport.update({
+  id: '/locations/garland',
+  path: '/locations/garland',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsDallasRoute = LocationsDallasRouteImport.update({
+  id: '/locations/dallas',
+  path: '/locations/dallas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsCarrolltonRoute = LocationsCarrolltonRouteImport.update({
+  id: '/locations/carrollton',
+  path: '/locations/carrollton',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnWindshieldWiperIssuesAfterReplacementRoute =
+  LearnWindshieldWiperIssuesAfterReplacementRouteImport.update({
+    id: '/learn/windshield-wiper-issues-after-replacement',
+    path: '/learn/windshield-wiper-issues-after-replacement',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnWindshieldReplacementCostDallasRoute =
+  LearnWindshieldReplacementCostDallasRouteImport.update({
+    id: '/learn/windshield-replacement-cost-dallas',
+    path: '/learn/windshield-replacement-cost-dallas',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnWindshieldRepairVsReplacementRoute =
+  LearnWindshieldRepairVsReplacementRouteImport.update({
+    id: '/learn/windshield-repair-vs-replacement',
+    path: '/learn/windshield-repair-vs-replacement',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnWhySomeClaimsNotFullyCoveredRoute =
+  LearnWhySomeClaimsNotFullyCoveredRouteImport.update({
+    id: '/learn/why-some-claims-not-fully-covered',
+    path: '/learn/why-some-claims-not-fully-covered',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnTexasWindshieldLawsRoute =
+  LearnTexasWindshieldLawsRouteImport.update({
+    id: '/learn/texas-windshield-laws',
+    path: '/learn/texas-windshield-laws',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnSideWindowReplacementProcessRoute =
+  LearnSideWindowReplacementProcessRouteImport.update({
+    id: '/learn/side-window-replacement-process',
+    path: '/learn/side-window-replacement-process',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnQualityAutoGlassInstallerSignsRoute =
+  LearnQualityAutoGlassInstallerSignsRouteImport.update({
+    id: '/learn/quality-auto-glass-installer-signs',
+    path: '/learn/quality-auto-glass-installer-signs',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnOemVsAftermarketWindshieldRoute =
+  LearnOemVsAftermarketWindshieldRouteImport.update({
+    id: '/learn/oem-vs-aftermarket-windshield',
+    path: '/learn/oem-vs-aftermarket-windshield',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnNewWindshieldCureTimeRoute =
+  LearnNewWindshieldCureTimeRouteImport.update({
+    id: '/learn/new-windshield-cure-time',
+    path: '/learn/new-windshield-cure-time',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnMobileAutoGlassServiceExplainedRoute =
+  LearnMobileAutoGlassServiceExplainedRouteImport.update({
+    id: '/learn/mobile-auto-glass-service-explained',
+    path: '/learn/mobile-auto-glass-service-explained',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnInsuranceWindshieldReplacementTexasRoute =
+  LearnInsuranceWindshieldReplacementTexasRouteImport.update({
+    id: '/learn/insurance-windshield-replacement-texas',
+    path: '/learn/insurance-windshield-replacement-texas',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnHowLongWindshieldReplacementTakesRoute =
+  LearnHowLongWindshieldReplacementTakesRouteImport.update({
+    id: '/learn/how-long-windshield-replacement-takes',
+    path: '/learn/how-long-windshield-replacement-takes',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnHailDamageWindshieldOptionsRoute =
+  LearnHailDamageWindshieldOptionsRouteImport.update({
+    id: '/learn/hail-damage-windshield-options',
+    path: '/learn/hail-damage-windshield-options',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnCrackedWindshieldHowLongDriveRoute =
+  LearnCrackedWindshieldHowLongDriveRouteImport.update({
+    id: '/learn/cracked-windshield-how-long-drive',
+    path: '/learn/cracked-windshield-how-long-drive',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnAdasCalibrationExplainedRoute =
+  LearnAdasCalibrationExplainedRouteImport.update({
+    id: '/learn/adas-calibration-explained',
+    path: '/learn/adas-calibration-explained',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/learn/adas-calibration-explained': typeof LearnAdasCalibrationExplainedRoute
+  '/learn/cracked-windshield-how-long-drive': typeof LearnCrackedWindshieldHowLongDriveRoute
+  '/learn/hail-damage-windshield-options': typeof LearnHailDamageWindshieldOptionsRoute
+  '/learn/how-long-windshield-replacement-takes': typeof LearnHowLongWindshieldReplacementTakesRoute
+  '/learn/insurance-windshield-replacement-texas': typeof LearnInsuranceWindshieldReplacementTexasRoute
+  '/learn/mobile-auto-glass-service-explained': typeof LearnMobileAutoGlassServiceExplainedRoute
+  '/learn/new-windshield-cure-time': typeof LearnNewWindshieldCureTimeRoute
+  '/learn/oem-vs-aftermarket-windshield': typeof LearnOemVsAftermarketWindshieldRoute
+  '/learn/quality-auto-glass-installer-signs': typeof LearnQualityAutoGlassInstallerSignsRoute
+  '/learn/side-window-replacement-process': typeof LearnSideWindowReplacementProcessRoute
+  '/learn/texas-windshield-laws': typeof LearnTexasWindshieldLawsRoute
+  '/learn/why-some-claims-not-fully-covered': typeof LearnWhySomeClaimsNotFullyCoveredRoute
+  '/learn/windshield-repair-vs-replacement': typeof LearnWindshieldRepairVsReplacementRoute
+  '/learn/windshield-replacement-cost-dallas': typeof LearnWindshieldReplacementCostDallasRoute
+  '/learn/windshield-wiper-issues-after-replacement': typeof LearnWindshieldWiperIssuesAfterReplacementRoute
+  '/locations/carrollton': typeof LocationsCarrolltonRoute
+  '/locations/dallas': typeof LocationsDallasRoute
+  '/locations/garland': typeof LocationsGarlandRoute
+  '/locations/irving': typeof LocationsIrvingRoute
+  '/locations/lewisville': typeof LocationsLewisvilleRoute
+  '/locations/mesquite': typeof LocationsMesquiteRoute
+  '/locations/plano': typeof LocationsPlanoRoute
+  '/locations/richardson': typeof LocationsRichardsonRoute
+  '/services/adas-calibration': typeof ServicesAdasCalibrationRoute
+  '/services/back-window-replacement': typeof ServicesBackWindowReplacementRoute
+  '/services/classic-car-glass': typeof ServicesClassicCarGlassRoute
+  '/services/commercial-fleet-glass': typeof ServicesCommercialFleetGlassRoute
+  '/services/mobile-auto-glass': typeof ServicesMobileAutoGlassRoute
+  '/services/same-day-service': typeof ServicesSameDayServiceRoute
+  '/services/side-window-replacement': typeof ServicesSideWindowReplacementRoute
+  '/services/sunroof-glass-repair': typeof ServicesSunroofGlassRepairRoute
+  '/services/windshield-repair': typeof ServicesWindshieldRepairRoute
+  '/services/windshield-replacement': typeof ServicesWindshieldReplacementRoute
+  '/learn/': typeof LearnIndexRoute
+  '/locations/': typeof LocationsIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/learn/adas-calibration-explained': typeof LearnAdasCalibrationExplainedRoute
+  '/learn/cracked-windshield-how-long-drive': typeof LearnCrackedWindshieldHowLongDriveRoute
+  '/learn/hail-damage-windshield-options': typeof LearnHailDamageWindshieldOptionsRoute
+  '/learn/how-long-windshield-replacement-takes': typeof LearnHowLongWindshieldReplacementTakesRoute
+  '/learn/insurance-windshield-replacement-texas': typeof LearnInsuranceWindshieldReplacementTexasRoute
+  '/learn/mobile-auto-glass-service-explained': typeof LearnMobileAutoGlassServiceExplainedRoute
+  '/learn/new-windshield-cure-time': typeof LearnNewWindshieldCureTimeRoute
+  '/learn/oem-vs-aftermarket-windshield': typeof LearnOemVsAftermarketWindshieldRoute
+  '/learn/quality-auto-glass-installer-signs': typeof LearnQualityAutoGlassInstallerSignsRoute
+  '/learn/side-window-replacement-process': typeof LearnSideWindowReplacementProcessRoute
+  '/learn/texas-windshield-laws': typeof LearnTexasWindshieldLawsRoute
+  '/learn/why-some-claims-not-fully-covered': typeof LearnWhySomeClaimsNotFullyCoveredRoute
+  '/learn/windshield-repair-vs-replacement': typeof LearnWindshieldRepairVsReplacementRoute
+  '/learn/windshield-replacement-cost-dallas': typeof LearnWindshieldReplacementCostDallasRoute
+  '/learn/windshield-wiper-issues-after-replacement': typeof LearnWindshieldWiperIssuesAfterReplacementRoute
+  '/locations/carrollton': typeof LocationsCarrolltonRoute
+  '/locations/dallas': typeof LocationsDallasRoute
+  '/locations/garland': typeof LocationsGarlandRoute
+  '/locations/irving': typeof LocationsIrvingRoute
+  '/locations/lewisville': typeof LocationsLewisvilleRoute
+  '/locations/mesquite': typeof LocationsMesquiteRoute
+  '/locations/plano': typeof LocationsPlanoRoute
+  '/locations/richardson': typeof LocationsRichardsonRoute
+  '/services/adas-calibration': typeof ServicesAdasCalibrationRoute
+  '/services/back-window-replacement': typeof ServicesBackWindowReplacementRoute
+  '/services/classic-car-glass': typeof ServicesClassicCarGlassRoute
+  '/services/commercial-fleet-glass': typeof ServicesCommercialFleetGlassRoute
+  '/services/mobile-auto-glass': typeof ServicesMobileAutoGlassRoute
+  '/services/same-day-service': typeof ServicesSameDayServiceRoute
+  '/services/side-window-replacement': typeof ServicesSideWindowReplacementRoute
+  '/services/sunroof-glass-repair': typeof ServicesSunroofGlassRepairRoute
+  '/services/windshield-repair': typeof ServicesWindshieldRepairRoute
+  '/services/windshield-replacement': typeof ServicesWindshieldReplacementRoute
+  '/learn': typeof LearnIndexRoute
+  '/locations': typeof LocationsIndexRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/learn/adas-calibration-explained': typeof LearnAdasCalibrationExplainedRoute
+  '/learn/cracked-windshield-how-long-drive': typeof LearnCrackedWindshieldHowLongDriveRoute
+  '/learn/hail-damage-windshield-options': typeof LearnHailDamageWindshieldOptionsRoute
+  '/learn/how-long-windshield-replacement-takes': typeof LearnHowLongWindshieldReplacementTakesRoute
+  '/learn/insurance-windshield-replacement-texas': typeof LearnInsuranceWindshieldReplacementTexasRoute
+  '/learn/mobile-auto-glass-service-explained': typeof LearnMobileAutoGlassServiceExplainedRoute
+  '/learn/new-windshield-cure-time': typeof LearnNewWindshieldCureTimeRoute
+  '/learn/oem-vs-aftermarket-windshield': typeof LearnOemVsAftermarketWindshieldRoute
+  '/learn/quality-auto-glass-installer-signs': typeof LearnQualityAutoGlassInstallerSignsRoute
+  '/learn/side-window-replacement-process': typeof LearnSideWindowReplacementProcessRoute
+  '/learn/texas-windshield-laws': typeof LearnTexasWindshieldLawsRoute
+  '/learn/why-some-claims-not-fully-covered': typeof LearnWhySomeClaimsNotFullyCoveredRoute
+  '/learn/windshield-repair-vs-replacement': typeof LearnWindshieldRepairVsReplacementRoute
+  '/learn/windshield-replacement-cost-dallas': typeof LearnWindshieldReplacementCostDallasRoute
+  '/learn/windshield-wiper-issues-after-replacement': typeof LearnWindshieldWiperIssuesAfterReplacementRoute
+  '/locations/carrollton': typeof LocationsCarrolltonRoute
+  '/locations/dallas': typeof LocationsDallasRoute
+  '/locations/garland': typeof LocationsGarlandRoute
+  '/locations/irving': typeof LocationsIrvingRoute
+  '/locations/lewisville': typeof LocationsLewisvilleRoute
+  '/locations/mesquite': typeof LocationsMesquiteRoute
+  '/locations/plano': typeof LocationsPlanoRoute
+  '/locations/richardson': typeof LocationsRichardsonRoute
+  '/services/adas-calibration': typeof ServicesAdasCalibrationRoute
+  '/services/back-window-replacement': typeof ServicesBackWindowReplacementRoute
+  '/services/classic-car-glass': typeof ServicesClassicCarGlassRoute
+  '/services/commercial-fleet-glass': typeof ServicesCommercialFleetGlassRoute
+  '/services/mobile-auto-glass': typeof ServicesMobileAutoGlassRoute
+  '/services/same-day-service': typeof ServicesSameDayServiceRoute
+  '/services/side-window-replacement': typeof ServicesSideWindowReplacementRoute
+  '/services/sunroof-glass-repair': typeof ServicesSunroofGlassRepairRoute
+  '/services/windshield-repair': typeof ServicesWindshieldRepairRoute
+  '/services/windshield-replacement': typeof ServicesWindshieldReplacementRoute
+  '/learn/': typeof LearnIndexRoute
+  '/locations/': typeof LocationsIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/learn/adas-calibration-explained'
+    | '/learn/cracked-windshield-how-long-drive'
+    | '/learn/hail-damage-windshield-options'
+    | '/learn/how-long-windshield-replacement-takes'
+    | '/learn/insurance-windshield-replacement-texas'
+    | '/learn/mobile-auto-glass-service-explained'
+    | '/learn/new-windshield-cure-time'
+    | '/learn/oem-vs-aftermarket-windshield'
+    | '/learn/quality-auto-glass-installer-signs'
+    | '/learn/side-window-replacement-process'
+    | '/learn/texas-windshield-laws'
+    | '/learn/why-some-claims-not-fully-covered'
+    | '/learn/windshield-repair-vs-replacement'
+    | '/learn/windshield-replacement-cost-dallas'
+    | '/learn/windshield-wiper-issues-after-replacement'
+    | '/locations/carrollton'
+    | '/locations/dallas'
+    | '/locations/garland'
+    | '/locations/irving'
+    | '/locations/lewisville'
+    | '/locations/mesquite'
+    | '/locations/plano'
+    | '/locations/richardson'
+    | '/services/adas-calibration'
+    | '/services/back-window-replacement'
+    | '/services/classic-car-glass'
+    | '/services/commercial-fleet-glass'
+    | '/services/mobile-auto-glass'
+    | '/services/same-day-service'
+    | '/services/side-window-replacement'
+    | '/services/sunroof-glass-repair'
+    | '/services/windshield-repair'
+    | '/services/windshield-replacement'
+    | '/learn/'
+    | '/locations/'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/learn/adas-calibration-explained'
+    | '/learn/cracked-windshield-how-long-drive'
+    | '/learn/hail-damage-windshield-options'
+    | '/learn/how-long-windshield-replacement-takes'
+    | '/learn/insurance-windshield-replacement-texas'
+    | '/learn/mobile-auto-glass-service-explained'
+    | '/learn/new-windshield-cure-time'
+    | '/learn/oem-vs-aftermarket-windshield'
+    | '/learn/quality-auto-glass-installer-signs'
+    | '/learn/side-window-replacement-process'
+    | '/learn/texas-windshield-laws'
+    | '/learn/why-some-claims-not-fully-covered'
+    | '/learn/windshield-repair-vs-replacement'
+    | '/learn/windshield-replacement-cost-dallas'
+    | '/learn/windshield-wiper-issues-after-replacement'
+    | '/locations/carrollton'
+    | '/locations/dallas'
+    | '/locations/garland'
+    | '/locations/irving'
+    | '/locations/lewisville'
+    | '/locations/mesquite'
+    | '/locations/plano'
+    | '/locations/richardson'
+    | '/services/adas-calibration'
+    | '/services/back-window-replacement'
+    | '/services/classic-car-glass'
+    | '/services/commercial-fleet-glass'
+    | '/services/mobile-auto-glass'
+    | '/services/same-day-service'
+    | '/services/side-window-replacement'
+    | '/services/sunroof-glass-repair'
+    | '/services/windshield-repair'
+    | '/services/windshield-replacement'
+    | '/learn'
+    | '/locations'
+    | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/learn/adas-calibration-explained'
+    | '/learn/cracked-windshield-how-long-drive'
+    | '/learn/hail-damage-windshield-options'
+    | '/learn/how-long-windshield-replacement-takes'
+    | '/learn/insurance-windshield-replacement-texas'
+    | '/learn/mobile-auto-glass-service-explained'
+    | '/learn/new-windshield-cure-time'
+    | '/learn/oem-vs-aftermarket-windshield'
+    | '/learn/quality-auto-glass-installer-signs'
+    | '/learn/side-window-replacement-process'
+    | '/learn/texas-windshield-laws'
+    | '/learn/why-some-claims-not-fully-covered'
+    | '/learn/windshield-repair-vs-replacement'
+    | '/learn/windshield-replacement-cost-dallas'
+    | '/learn/windshield-wiper-issues-after-replacement'
+    | '/locations/carrollton'
+    | '/locations/dallas'
+    | '/locations/garland'
+    | '/locations/irving'
+    | '/locations/lewisville'
+    | '/locations/mesquite'
+    | '/locations/plano'
+    | '/locations/richardson'
+    | '/services/adas-calibration'
+    | '/services/back-window-replacement'
+    | '/services/classic-car-glass'
+    | '/services/commercial-fleet-glass'
+    | '/services/mobile-auto-glass'
+    | '/services/same-day-service'
+    | '/services/side-window-replacement'
+    | '/services/sunroof-glass-repair'
+    | '/services/windshield-repair'
+    | '/services/windshield-replacement'
+    | '/learn/'
+    | '/locations/'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LearnAdasCalibrationExplainedRoute: typeof LearnAdasCalibrationExplainedRoute
+  LearnCrackedWindshieldHowLongDriveRoute: typeof LearnCrackedWindshieldHowLongDriveRoute
+  LearnHailDamageWindshieldOptionsRoute: typeof LearnHailDamageWindshieldOptionsRoute
+  LearnHowLongWindshieldReplacementTakesRoute: typeof LearnHowLongWindshieldReplacementTakesRoute
+  LearnInsuranceWindshieldReplacementTexasRoute: typeof LearnInsuranceWindshieldReplacementTexasRoute
+  LearnMobileAutoGlassServiceExplainedRoute: typeof LearnMobileAutoGlassServiceExplainedRoute
+  LearnNewWindshieldCureTimeRoute: typeof LearnNewWindshieldCureTimeRoute
+  LearnOemVsAftermarketWindshieldRoute: typeof LearnOemVsAftermarketWindshieldRoute
+  LearnQualityAutoGlassInstallerSignsRoute: typeof LearnQualityAutoGlassInstallerSignsRoute
+  LearnSideWindowReplacementProcessRoute: typeof LearnSideWindowReplacementProcessRoute
+  LearnTexasWindshieldLawsRoute: typeof LearnTexasWindshieldLawsRoute
+  LearnWhySomeClaimsNotFullyCoveredRoute: typeof LearnWhySomeClaimsNotFullyCoveredRoute
+  LearnWindshieldRepairVsReplacementRoute: typeof LearnWindshieldRepairVsReplacementRoute
+  LearnWindshieldReplacementCostDallasRoute: typeof LearnWindshieldReplacementCostDallasRoute
+  LearnWindshieldWiperIssuesAfterReplacementRoute: typeof LearnWindshieldWiperIssuesAfterReplacementRoute
+  LocationsCarrolltonRoute: typeof LocationsCarrolltonRoute
+  LocationsDallasRoute: typeof LocationsDallasRoute
+  LocationsGarlandRoute: typeof LocationsGarlandRoute
+  LocationsIrvingRoute: typeof LocationsIrvingRoute
+  LocationsLewisvilleRoute: typeof LocationsLewisvilleRoute
+  LocationsMesquiteRoute: typeof LocationsMesquiteRoute
+  LocationsPlanoRoute: typeof LocationsPlanoRoute
+  LocationsRichardsonRoute: typeof LocationsRichardsonRoute
+  ServicesAdasCalibrationRoute: typeof ServicesAdasCalibrationRoute
+  ServicesBackWindowReplacementRoute: typeof ServicesBackWindowReplacementRoute
+  ServicesClassicCarGlassRoute: typeof ServicesClassicCarGlassRoute
+  ServicesCommercialFleetGlassRoute: typeof ServicesCommercialFleetGlassRoute
+  ServicesMobileAutoGlassRoute: typeof ServicesMobileAutoGlassRoute
+  ServicesSameDayServiceRoute: typeof ServicesSameDayServiceRoute
+  ServicesSideWindowReplacementRoute: typeof ServicesSideWindowReplacementRoute
+  ServicesSunroofGlassRepairRoute: typeof ServicesSunroofGlassRepairRoute
+  ServicesWindshieldRepairRoute: typeof ServicesWindshieldRepairRoute
+  ServicesWindshieldReplacementRoute: typeof ServicesWindshieldReplacementRoute
+  LearnIndexRoute: typeof LearnIndexRoute
+  LocationsIndexRoute: typeof LocationsIndexRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +541,309 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/': {
+      id: '/locations/'
+      path: '/locations'
+      fullPath: '/locations/'
+      preLoaderRoute: typeof LocationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/': {
+      id: '/learn/'
+      path: '/learn'
+      fullPath: '/learn/'
+      preLoaderRoute: typeof LearnIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/windshield-replacement': {
+      id: '/services/windshield-replacement'
+      path: '/services/windshield-replacement'
+      fullPath: '/services/windshield-replacement'
+      preLoaderRoute: typeof ServicesWindshieldReplacementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/windshield-repair': {
+      id: '/services/windshield-repair'
+      path: '/services/windshield-repair'
+      fullPath: '/services/windshield-repair'
+      preLoaderRoute: typeof ServicesWindshieldRepairRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/sunroof-glass-repair': {
+      id: '/services/sunroof-glass-repair'
+      path: '/services/sunroof-glass-repair'
+      fullPath: '/services/sunroof-glass-repair'
+      preLoaderRoute: typeof ServicesSunroofGlassRepairRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/side-window-replacement': {
+      id: '/services/side-window-replacement'
+      path: '/services/side-window-replacement'
+      fullPath: '/services/side-window-replacement'
+      preLoaderRoute: typeof ServicesSideWindowReplacementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/same-day-service': {
+      id: '/services/same-day-service'
+      path: '/services/same-day-service'
+      fullPath: '/services/same-day-service'
+      preLoaderRoute: typeof ServicesSameDayServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/mobile-auto-glass': {
+      id: '/services/mobile-auto-glass'
+      path: '/services/mobile-auto-glass'
+      fullPath: '/services/mobile-auto-glass'
+      preLoaderRoute: typeof ServicesMobileAutoGlassRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/commercial-fleet-glass': {
+      id: '/services/commercial-fleet-glass'
+      path: '/services/commercial-fleet-glass'
+      fullPath: '/services/commercial-fleet-glass'
+      preLoaderRoute: typeof ServicesCommercialFleetGlassRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/classic-car-glass': {
+      id: '/services/classic-car-glass'
+      path: '/services/classic-car-glass'
+      fullPath: '/services/classic-car-glass'
+      preLoaderRoute: typeof ServicesClassicCarGlassRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/back-window-replacement': {
+      id: '/services/back-window-replacement'
+      path: '/services/back-window-replacement'
+      fullPath: '/services/back-window-replacement'
+      preLoaderRoute: typeof ServicesBackWindowReplacementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/adas-calibration': {
+      id: '/services/adas-calibration'
+      path: '/services/adas-calibration'
+      fullPath: '/services/adas-calibration'
+      preLoaderRoute: typeof ServicesAdasCalibrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/richardson': {
+      id: '/locations/richardson'
+      path: '/locations/richardson'
+      fullPath: '/locations/richardson'
+      preLoaderRoute: typeof LocationsRichardsonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/plano': {
+      id: '/locations/plano'
+      path: '/locations/plano'
+      fullPath: '/locations/plano'
+      preLoaderRoute: typeof LocationsPlanoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/mesquite': {
+      id: '/locations/mesquite'
+      path: '/locations/mesquite'
+      fullPath: '/locations/mesquite'
+      preLoaderRoute: typeof LocationsMesquiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/lewisville': {
+      id: '/locations/lewisville'
+      path: '/locations/lewisville'
+      fullPath: '/locations/lewisville'
+      preLoaderRoute: typeof LocationsLewisvilleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/irving': {
+      id: '/locations/irving'
+      path: '/locations/irving'
+      fullPath: '/locations/irving'
+      preLoaderRoute: typeof LocationsIrvingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/garland': {
+      id: '/locations/garland'
+      path: '/locations/garland'
+      fullPath: '/locations/garland'
+      preLoaderRoute: typeof LocationsGarlandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/dallas': {
+      id: '/locations/dallas'
+      path: '/locations/dallas'
+      fullPath: '/locations/dallas'
+      preLoaderRoute: typeof LocationsDallasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/carrollton': {
+      id: '/locations/carrollton'
+      path: '/locations/carrollton'
+      fullPath: '/locations/carrollton'
+      preLoaderRoute: typeof LocationsCarrolltonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/windshield-wiper-issues-after-replacement': {
+      id: '/learn/windshield-wiper-issues-after-replacement'
+      path: '/learn/windshield-wiper-issues-after-replacement'
+      fullPath: '/learn/windshield-wiper-issues-after-replacement'
+      preLoaderRoute: typeof LearnWindshieldWiperIssuesAfterReplacementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/windshield-replacement-cost-dallas': {
+      id: '/learn/windshield-replacement-cost-dallas'
+      path: '/learn/windshield-replacement-cost-dallas'
+      fullPath: '/learn/windshield-replacement-cost-dallas'
+      preLoaderRoute: typeof LearnWindshieldReplacementCostDallasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/windshield-repair-vs-replacement': {
+      id: '/learn/windshield-repair-vs-replacement'
+      path: '/learn/windshield-repair-vs-replacement'
+      fullPath: '/learn/windshield-repair-vs-replacement'
+      preLoaderRoute: typeof LearnWindshieldRepairVsReplacementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/why-some-claims-not-fully-covered': {
+      id: '/learn/why-some-claims-not-fully-covered'
+      path: '/learn/why-some-claims-not-fully-covered'
+      fullPath: '/learn/why-some-claims-not-fully-covered'
+      preLoaderRoute: typeof LearnWhySomeClaimsNotFullyCoveredRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/texas-windshield-laws': {
+      id: '/learn/texas-windshield-laws'
+      path: '/learn/texas-windshield-laws'
+      fullPath: '/learn/texas-windshield-laws'
+      preLoaderRoute: typeof LearnTexasWindshieldLawsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/side-window-replacement-process': {
+      id: '/learn/side-window-replacement-process'
+      path: '/learn/side-window-replacement-process'
+      fullPath: '/learn/side-window-replacement-process'
+      preLoaderRoute: typeof LearnSideWindowReplacementProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/quality-auto-glass-installer-signs': {
+      id: '/learn/quality-auto-glass-installer-signs'
+      path: '/learn/quality-auto-glass-installer-signs'
+      fullPath: '/learn/quality-auto-glass-installer-signs'
+      preLoaderRoute: typeof LearnQualityAutoGlassInstallerSignsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/oem-vs-aftermarket-windshield': {
+      id: '/learn/oem-vs-aftermarket-windshield'
+      path: '/learn/oem-vs-aftermarket-windshield'
+      fullPath: '/learn/oem-vs-aftermarket-windshield'
+      preLoaderRoute: typeof LearnOemVsAftermarketWindshieldRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/new-windshield-cure-time': {
+      id: '/learn/new-windshield-cure-time'
+      path: '/learn/new-windshield-cure-time'
+      fullPath: '/learn/new-windshield-cure-time'
+      preLoaderRoute: typeof LearnNewWindshieldCureTimeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/mobile-auto-glass-service-explained': {
+      id: '/learn/mobile-auto-glass-service-explained'
+      path: '/learn/mobile-auto-glass-service-explained'
+      fullPath: '/learn/mobile-auto-glass-service-explained'
+      preLoaderRoute: typeof LearnMobileAutoGlassServiceExplainedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/insurance-windshield-replacement-texas': {
+      id: '/learn/insurance-windshield-replacement-texas'
+      path: '/learn/insurance-windshield-replacement-texas'
+      fullPath: '/learn/insurance-windshield-replacement-texas'
+      preLoaderRoute: typeof LearnInsuranceWindshieldReplacementTexasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/how-long-windshield-replacement-takes': {
+      id: '/learn/how-long-windshield-replacement-takes'
+      path: '/learn/how-long-windshield-replacement-takes'
+      fullPath: '/learn/how-long-windshield-replacement-takes'
+      preLoaderRoute: typeof LearnHowLongWindshieldReplacementTakesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/hail-damage-windshield-options': {
+      id: '/learn/hail-damage-windshield-options'
+      path: '/learn/hail-damage-windshield-options'
+      fullPath: '/learn/hail-damage-windshield-options'
+      preLoaderRoute: typeof LearnHailDamageWindshieldOptionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/cracked-windshield-how-long-drive': {
+      id: '/learn/cracked-windshield-how-long-drive'
+      path: '/learn/cracked-windshield-how-long-drive'
+      fullPath: '/learn/cracked-windshield-how-long-drive'
+      preLoaderRoute: typeof LearnCrackedWindshieldHowLongDriveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/adas-calibration-explained': {
+      id: '/learn/adas-calibration-explained'
+      path: '/learn/adas-calibration-explained'
+      fullPath: '/learn/adas-calibration-explained'
+      preLoaderRoute: typeof LearnAdasCalibrationExplainedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LearnAdasCalibrationExplainedRoute: LearnAdasCalibrationExplainedRoute,
+  LearnCrackedWindshieldHowLongDriveRoute:
+    LearnCrackedWindshieldHowLongDriveRoute,
+  LearnHailDamageWindshieldOptionsRoute: LearnHailDamageWindshieldOptionsRoute,
+  LearnHowLongWindshieldReplacementTakesRoute:
+    LearnHowLongWindshieldReplacementTakesRoute,
+  LearnInsuranceWindshieldReplacementTexasRoute:
+    LearnInsuranceWindshieldReplacementTexasRoute,
+  LearnMobileAutoGlassServiceExplainedRoute:
+    LearnMobileAutoGlassServiceExplainedRoute,
+  LearnNewWindshieldCureTimeRoute: LearnNewWindshieldCureTimeRoute,
+  LearnOemVsAftermarketWindshieldRoute: LearnOemVsAftermarketWindshieldRoute,
+  LearnQualityAutoGlassInstallerSignsRoute:
+    LearnQualityAutoGlassInstallerSignsRoute,
+  LearnSideWindowReplacementProcessRoute:
+    LearnSideWindowReplacementProcessRoute,
+  LearnTexasWindshieldLawsRoute: LearnTexasWindshieldLawsRoute,
+  LearnWhySomeClaimsNotFullyCoveredRoute:
+    LearnWhySomeClaimsNotFullyCoveredRoute,
+  LearnWindshieldRepairVsReplacementRoute:
+    LearnWindshieldRepairVsReplacementRoute,
+  LearnWindshieldReplacementCostDallasRoute:
+    LearnWindshieldReplacementCostDallasRoute,
+  LearnWindshieldWiperIssuesAfterReplacementRoute:
+    LearnWindshieldWiperIssuesAfterReplacementRoute,
+  LocationsCarrolltonRoute: LocationsCarrolltonRoute,
+  LocationsDallasRoute: LocationsDallasRoute,
+  LocationsGarlandRoute: LocationsGarlandRoute,
+  LocationsIrvingRoute: LocationsIrvingRoute,
+  LocationsLewisvilleRoute: LocationsLewisvilleRoute,
+  LocationsMesquiteRoute: LocationsMesquiteRoute,
+  LocationsPlanoRoute: LocationsPlanoRoute,
+  LocationsRichardsonRoute: LocationsRichardsonRoute,
+  ServicesAdasCalibrationRoute: ServicesAdasCalibrationRoute,
+  ServicesBackWindowReplacementRoute: ServicesBackWindowReplacementRoute,
+  ServicesClassicCarGlassRoute: ServicesClassicCarGlassRoute,
+  ServicesCommercialFleetGlassRoute: ServicesCommercialFleetGlassRoute,
+  ServicesMobileAutoGlassRoute: ServicesMobileAutoGlassRoute,
+  ServicesSameDayServiceRoute: ServicesSameDayServiceRoute,
+  ServicesSideWindowReplacementRoute: ServicesSideWindowReplacementRoute,
+  ServicesSunroofGlassRepairRoute: ServicesSunroofGlassRepairRoute,
+  ServicesWindshieldRepairRoute: ServicesWindshieldRepairRoute,
+  ServicesWindshieldReplacementRoute: ServicesWindshieldReplacementRoute,
+  LearnIndexRoute: LearnIndexRoute,
+  LocationsIndexRoute: LocationsIndexRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

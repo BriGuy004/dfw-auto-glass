@@ -1,0 +1,38 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { buildSeo } from "@/lib/seo";
+import { siteConfig } from "@/config/site";
+
+export const Route = createFileRoute("/services/side-window-replacement")({
+  component: ServicePage,
+  head: () =>
+    buildSeo({
+      title: "Side Window Replacement Dallas, TX | Door Glass Replacement",
+      description:
+        "Broken side window or door glass in Dallas? Same-day mobile replacement service across DFW. Free quotes.",
+      canonical: "/services/side-window-replacement",
+    }),
+});
+
+function ServicePage() {
+  return (
+    <main className="min-h-screen bg-background">
+      <section className="container mx-auto px-4 py-16">
+        <h1 className="text-4xl font-bold tracking-tight">Dallas Car Side Window Replacement</h1>
+        <p className="mt-4 text-lg text-muted-foreground">
+          Broken door glass or quarter window? We replace side glass same-day at your location.
+        </p>
+        <div className="mt-8">
+          <a
+            href={`tel:${siteConfig.phone.tel}`}
+            className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-semibold text-primary-foreground shadow hover:bg-primary/90"
+          >
+            Call {siteConfig.phone.display}
+          </a>
+        </div>
+        <p className="mt-12 text-sm text-muted-foreground">
+          Full content for this page coming soon. Call now for an immediate free quote.
+        </p>
+      </section>
+    </main>
+  );
+}
