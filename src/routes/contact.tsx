@@ -8,7 +8,7 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
   head: () =>
     buildSeo({
-      title: "Contact",
+      title: "Contact Auto Glass Pros Dallas",
       description:
         "Contact Auto Glass Pros Dallas for a free auto glass quote — same-day mobile windshield replacement and repair across the DFW Metroplex.",
       canonical: "/contact",
@@ -27,7 +27,7 @@ function ContactPage() {
   return (
     <main className="bg-background">
       <section className="container mx-auto max-w-3xl px-4 py-16">
-        <h1 className="text-4xl font-bold tracking-tight">Contact Us</h1>
+        <h1 className="text-4xl font-bold tracking-tight">Contact Auto Glass Pros Dallas</h1>
         <p className="mt-4 text-lg text-muted-foreground">
           The fastest way to reach {siteConfig.brandName} is by phone. Tell us the year, make, and model of your vehicle plus a photo of the damage and we'll text you a free quote.
         </p>
