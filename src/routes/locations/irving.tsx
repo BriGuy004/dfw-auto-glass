@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { buildBreadcrumbListSchema } from "@/lib/schema";
+import { cities } from "@/data/cities";
+
+const ENTRY = cities.find((c) => c.slug === "irving")!;
 
 export const Route = createFileRoute("/locations/irving")({
   component: LocationPage,
@@ -11,6 +14,7 @@ export const Route = createFileRoute("/locations/irving")({
       description:
         "Auto glass in Irving, TX. Windshield replacement, repair, mobile service. Same-day quotes. No insurance required.",
       canonical: "/locations/irving",
+      noindex: ENTRY.placeholder ?? false,
       schema: [
         buildBreadcrumbListSchema({
           items: [

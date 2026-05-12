@@ -6,6 +6,7 @@ export interface ServiceData {
   title: string;
   description: string;
   excerpt: string;
+  placeholder?: boolean;
 }
 
 export const services: ServiceData[] = [
@@ -18,6 +19,7 @@ export const services: ServiceData[] = [
     description:
       "Windshield replacement in Dallas-Fort Worth. Same-day mobile service, ADAS calibration included, no insurance required. Free quotes with photo.",
     excerpt: "Cracked or broken windshield? We replace it same-day with mobile service across DFW.",
+    placeholder: true,
   },
   {
     slug: "windshield-repair",
@@ -29,6 +31,7 @@ export const services: ServiceData[] = [
       "Fast windshield chip and crack repair across Dallas-Fort Worth. Mobile service, often $0 with insurance, prevents full replacement.",
     excerpt:
       "Small chips and cracks repaired in 30 minutes. Often free with insurance — Texas waives the deductible on chip repair.",
+    placeholder: true,
   },
   {
     slug: "side-window-replacement",
@@ -39,6 +42,7 @@ export const services: ServiceData[] = [
     description:
       "Broken side window or door glass in Dallas? Same-day mobile replacement service across DFW. Free quotes.",
     excerpt: "Broken door glass or quarter window? We replace side glass same-day at your location.",
+    placeholder: true,
   },
   {
     slug: "back-window-replacement",
@@ -49,6 +53,7 @@ export const services: ServiceData[] = [
     description:
       "Rear window replacement in Dallas-Fort Worth. Mobile service, defroster reconnection included. Free quotes.",
     excerpt: "Rear window shattered? We replace it with proper defroster grid reconnection.",
+    placeholder: true,
   },
   {
     slug: "sunroof-glass-repair",
@@ -59,6 +64,7 @@ export const services: ServiceData[] = [
     description:
       "Sunroof or moonroof glass repair in Dallas. Specialty service for cracked, leaking, or shattered sunroofs. Free quotes.",
     excerpt: "Cracked or leaking sunroof? We handle the specialty work most shops skip.",
+    placeholder: true,
   },
   {
     slug: "adas-calibration",
@@ -70,6 +76,7 @@ export const services: ServiceData[] = [
       "ADAS calibration after windshield replacement in Dallas. Required for lane assist, automatic braking, adaptive cruise. Done right or your safety systems fail.",
     excerpt:
       "Lane assist, auto braking, adaptive cruise — these need recalibration after windshield replacement on most 2018+ vehicles.",
+    placeholder: true,
   },
   {
     slug: "mobile-auto-glass",
@@ -80,6 +87,7 @@ export const services: ServiceData[] = [
     description:
       "Mobile auto glass service across Dallas-Fort Worth. We come to your home, office, or anywhere safe to park. Same-day available.",
     excerpt: "Don't drive on a damaged windshield. We come to you — home, office, parking lot, anywhere.",
+    placeholder: true,
   },
   {
     slug: "same-day-service",
@@ -90,6 +98,7 @@ export const services: ServiceData[] = [
     description:
       "Same-day windshield replacement and repair in Dallas. Emergency auto glass service when you need it now. Mobile dispatch across DFW.",
     excerpt: "Cracked windshield this morning? We can have it replaced this afternoon.",
+    placeholder: true,
   },
   {
     slug: "commercial-fleet-glass",
@@ -100,6 +109,7 @@ export const services: ServiceData[] = [
     description:
       "Commercial fleet auto glass service in Dallas. Volume pricing, scheduled maintenance, billing accounts for delivery, contractor, and service fleets.",
     excerpt: "Running a fleet? We handle scheduled and emergency glass work with volume pricing and billing accounts.",
+    placeholder: true,
   },
   {
     slug: "classic-car-glass",
@@ -110,5 +120,6 @@ export const services: ServiceData[] = [
     description:
       "Classic and vintage car glass replacement in Dallas. Specialty sourcing for restored vehicles, rubber gaskets, original-style glass. Free quotes.",
     excerpt: "Restoring a classic? We source vintage glass and trim specialists usually outsource.",
+    placeholder: true,
   },
 ];

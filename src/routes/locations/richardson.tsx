@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { buildBreadcrumbListSchema } from "@/lib/schema";
+import { cities } from "@/data/cities";
+
+const ENTRY = cities.find((c) => c.slug === "richardson")!;
 
 export const Route = createFileRoute("/locations/richardson")({
   component: LocationPage,
@@ -11,6 +14,7 @@ export const Route = createFileRoute("/locations/richardson")({
       description:
         "Auto glass in Richardson, TX. Windshield replacement, repair, mobile service. Same-day quotes. No insurance required.",
       canonical: "/locations/richardson",
+      noindex: ENTRY.placeholder ?? false,
       schema: [
         buildBreadcrumbListSchema({
           items: [

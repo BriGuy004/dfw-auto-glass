@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { buildServiceSchema, buildBreadcrumbListSchema } from "@/lib/schema";
+import { services } from "@/data/services";
+
+const ENTRY = services.find((s) => s.slug === "sunroof-glass-repair")!;
 
 export const Route = createFileRoute("/services/sunroof-glass-repair")({
   component: ServicePage,
@@ -11,6 +14,7 @@ export const Route = createFileRoute("/services/sunroof-glass-repair")({
       description:
         "Sunroof or moonroof glass repair in Dallas. Specialty service for cracked, leaking, or shattered sunroofs. Free quotes.",
       canonical: "/services/sunroof-glass-repair",
+      noindex: ENTRY.placeholder ?? false,
       schema: [
         buildServiceSchema({
           serviceName: "Sunroof Glass Repair",

@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { buildArticleSchema, buildBreadcrumbListSchema } from "@/lib/schema";
+import { learnArticles } from "@/data/learn";
+
+const ENTRY = learnArticles.find((a) => a.slug === "side-window-replacement-process")!;
 
 export const Route = createFileRoute("/learn/side-window-replacement-process")({
   component: LearnPage,
@@ -11,6 +14,7 @@ export const Route = createFileRoute("/learn/side-window-replacement-process")({
       description:
         "Side windows are tempered glass that shatters into pebbles when broken. Different process from windshield replacement: vacuum debris, install new glass in track, recalibrate window switch.",
       canonical: "/learn/side-window-replacement-process",
+      noindex: ENTRY.placeholder ?? false,
       schema: [
         buildArticleSchema({
           headline: "Side Window Replacement: Process & Differences from Windshield",

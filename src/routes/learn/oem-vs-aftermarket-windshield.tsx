@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { buildArticleSchema, buildBreadcrumbListSchema } from "@/lib/schema";
+import { learnArticles } from "@/data/learn";
+
+const ENTRY = learnArticles.find((a) => a.slug === "oem-vs-aftermarket-windshield")!;
 
 export const Route = createFileRoute("/learn/oem-vs-aftermarket-windshield")({
   component: LearnPage,
@@ -11,6 +14,7 @@ export const Route = createFileRoute("/learn/oem-vs-aftermarket-windshield")({
       description:
         "OEM windshields are made by the original manufacturer; aftermarket are made by third parties to spec. Both meet safety standards. ADAS vehicles often need OEM for calibration accuracy.",
       canonical: "/learn/oem-vs-aftermarket-windshield",
+      noindex: ENTRY.placeholder ?? false,
       schema: [
         buildArticleSchema({
           headline: "OEM vs Aftermarket Windshield: Which Is Right for You?",

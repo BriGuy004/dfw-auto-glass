@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { buildServiceSchema, buildBreadcrumbListSchema } from "@/lib/schema";
+import { services } from "@/data/services";
+
+const ENTRY = services.find((s) => s.slug === "back-window-replacement")!;
 
 export const Route = createFileRoute("/services/back-window-replacement")({
   component: ServicePage,
@@ -11,6 +14,7 @@ export const Route = createFileRoute("/services/back-window-replacement")({
       description:
         "Rear window replacement in Dallas-Fort Worth. Mobile service, defroster reconnection included. Free quotes.",
       canonical: "/services/back-window-replacement",
+      noindex: ENTRY.placeholder ?? false,
       schema: [
         buildServiceSchema({
           serviceName: "Back Window Replacement",

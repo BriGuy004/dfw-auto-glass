@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { buildServiceSchema, buildBreadcrumbListSchema } from "@/lib/schema";
+import { services } from "@/data/services";
+
+const ENTRY = services.find((s) => s.slug === "windshield-replacement")!;
 
 export const Route = createFileRoute("/services/windshield-replacement")({
   component: ServicePage,
@@ -11,6 +14,7 @@ export const Route = createFileRoute("/services/windshield-replacement")({
       description:
         "Windshield replacement in Dallas-Fort Worth. Same-day mobile service, ADAS calibration included, no insurance required. Free quotes with photo.",
       canonical: "/services/windshield-replacement",
+      noindex: ENTRY.placeholder ?? false,
       schema: [
         buildServiceSchema({
           serviceName: "Windshield Replacement",

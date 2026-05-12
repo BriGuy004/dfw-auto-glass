@@ -9,8 +9,6 @@ interface SitemapEntry {
   changefreq: "weekly" | "monthly";
 }
 
-const LASTMOD = "2026-05-12";
-
 function escapeXml(s: string): string {
   return s
     .replace(/&/g, "&amp;")
@@ -21,12 +19,14 @@ function escapeXml(s: string): string {
 }
 
 export function buildSitemapXml(): string {
+  const lastmod = new Date().toISOString().split("T")[0];
   const entries: SitemapEntry[] = [
     { path: "/", priority: 1.0, changefreq: "weekly" },
     { path: "/services", priority: 0.8, changefreq: "weekly" },
     { path: "/locations", priority: 0.8, changefreq: "weekly" },
     { path: "/learn", priority: 0.8, changefreq: "weekly" },
     { path: "/about", priority: 0.8, changefreq: "weekly" },
+    { path: "/contact", priority: 0.8, changefreq: "weekly" },
     ...services.map((s) => ({
       path: `/services/${s.slug}`,
       priority: 0.7,
@@ -48,7 +48,7 @@ export function buildSitemapXml(): string {
     .map(
       (e) => `  <url>
     <loc>${escapeXml(`${siteConfig.domain}${e.path}`)}</loc>
-    <lastmod>${LASTMOD}</lastmod>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>${e.changefreq}</changefreq>
     <priority>${e.priority.toFixed(1)}</priority>
   </url>`,

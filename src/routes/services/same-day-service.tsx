@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { buildServiceSchema, buildBreadcrumbListSchema } from "@/lib/schema";
+import { services } from "@/data/services";
+
+const ENTRY = services.find((s) => s.slug === "same-day-service")!;
 
 export const Route = createFileRoute("/services/same-day-service")({
   component: ServicePage,
@@ -11,6 +14,7 @@ export const Route = createFileRoute("/services/same-day-service")({
       description:
         "Same-day windshield replacement and repair in Dallas. Emergency auto glass service when you need it now. Mobile dispatch across DFW.",
       canonical: "/services/same-day-service",
+      noindex: ENTRY.placeholder ?? false,
       schema: [
         buildServiceSchema({
           serviceName: "Same-Day Service",

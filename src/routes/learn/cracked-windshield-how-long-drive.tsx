@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { buildArticleSchema, buildBreadcrumbListSchema } from "@/lib/schema";
+import { learnArticles } from "@/data/learn";
+
+const ENTRY = learnArticles.find((a) => a.slug === "cracked-windshield-how-long-drive")!;
 
 export const Route = createFileRoute("/learn/cracked-windshield-how-long-drive")({
   component: LearnPage,
@@ -11,6 +14,7 @@ export const Route = createFileRoute("/learn/cracked-windshield-how-long-drive")
       description:
         "Texas allows driving with minor cracks but illegal for cracks obstructing the driver view. Cracks spread fast in Texas heat. Repair early to avoid full replacement.",
       canonical: "/learn/cracked-windshield-how-long-drive",
+      noindex: ENTRY.placeholder ?? false,
       schema: [
         buildArticleSchema({
           headline: "How Long Can You Drive with a Cracked Windshield in Texas?",

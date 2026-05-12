@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { buildArticleSchema, buildBreadcrumbListSchema } from "@/lib/schema";
+import { learnArticles } from "@/data/learn";
+
+const ENTRY = learnArticles.find((a) => a.slug === "windshield-repair-vs-replacement")!;
 
 export const Route = createFileRoute("/learn/windshield-repair-vs-replacement")({
   component: LearnPage,
@@ -11,6 +14,7 @@ export const Route = createFileRoute("/learn/windshield-repair-vs-replacement")(
       description:
         "Repair small chips and cracks; replace longer cracks and damage in the driver line of sight. Here is how to know which your windshield needs.",
       canonical: "/learn/windshield-repair-vs-replacement",
+      noindex: ENTRY.placeholder ?? false,
       schema: [
         buildArticleSchema({
           headline: "Windshield Repair vs Replacement: When to Choose Each",

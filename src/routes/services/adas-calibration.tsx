@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { buildServiceSchema, buildBreadcrumbListSchema } from "@/lib/schema";
+import { services } from "@/data/services";
+
+const ENTRY = services.find((s) => s.slug === "adas-calibration")!;
 
 export const Route = createFileRoute("/services/adas-calibration")({
   component: ServicePage,
@@ -11,6 +14,7 @@ export const Route = createFileRoute("/services/adas-calibration")({
       description:
         "ADAS calibration after windshield replacement in Dallas. Required for lane assist, automatic braking, adaptive cruise. Done right or your safety systems fail.",
       canonical: "/services/adas-calibration",
+      noindex: ENTRY.placeholder ?? false,
       schema: [
         buildServiceSchema({
           serviceName: "ADAS Calibration",

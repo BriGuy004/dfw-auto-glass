@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { buildArticleSchema, buildBreadcrumbListSchema } from "@/lib/schema";
+import { learnArticles } from "@/data/learn";
+
+const ENTRY = learnArticles.find((a) => a.slug === "insurance-windshield-replacement-texas")!;
 
 export const Route = createFileRoute("/learn/insurance-windshield-replacement-texas")({
   component: LearnPage,
@@ -11,6 +14,7 @@ export const Route = createFileRoute("/learn/insurance-windshield-replacement-te
       description:
         "Texas law prohibits insurers from raising premiums for glass-only claims. Chip repair has $0 deductible. Full replacement requires meeting your deductible.",
       canonical: "/learn/insurance-windshield-replacement-texas",
+      noindex: ENTRY.placeholder ?? false,
       schema: [
         buildArticleSchema({
           headline: "Will Insurance Raise My Premiums for a Windshield Claim in Texas?",

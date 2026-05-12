@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 
+# Update domain when cloning to a new site (Sitemap URL in robots.txt must be absolute per spec):
 Sitemap: https://www.autoglassprosdallas.com/sitemap.xml
 
 # Block utility pages from being indexed (they have noindex meta already, but defense in depth)

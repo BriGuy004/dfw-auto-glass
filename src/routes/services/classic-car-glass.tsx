@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { buildServiceSchema, buildBreadcrumbListSchema } from "@/lib/schema";
+import { services } from "@/data/services";
+
+const ENTRY = services.find((s) => s.slug === "classic-car-glass")!;
 
 export const Route = createFileRoute("/services/classic-car-glass")({
   component: ServicePage,
@@ -11,6 +14,7 @@ export const Route = createFileRoute("/services/classic-car-glass")({
       description:
         "Classic and vintage car glass replacement in Dallas. Specialty sourcing for restored vehicles, rubber gaskets, original-style glass. Free quotes.",
       canonical: "/services/classic-car-glass",
+      noindex: ENTRY.placeholder ?? false,
       schema: [
         buildServiceSchema({
           serviceName: "Classic Car Glass",

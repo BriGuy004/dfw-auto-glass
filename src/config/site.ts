@@ -31,7 +31,7 @@ export const siteConfig = {
   },
 
   // Default OG image (we'll add real images later)
-  ogImage: '/og-default.jpg',
+  ogImage: '/og-default.png',
 
   // Locale
   locale: 'en_US',

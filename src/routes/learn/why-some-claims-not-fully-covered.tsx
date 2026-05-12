@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { buildArticleSchema, buildBreadcrumbListSchema } from "@/lib/schema";
+import { learnArticles } from "@/data/learn";
+
+const ENTRY = learnArticles.find((a) => a.slug === "why-some-claims-not-fully-covered")!;
 
 export const Route = createFileRoute("/learn/why-some-claims-not-fully-covered")({
   component: LearnPage,
@@ -11,6 +14,7 @@ export const Route = createFileRoute("/learn/why-some-claims-not-fully-covered")
       description:
         "Some policies cover only the deductible amount, exclude OEM glass, or limit ADAS calibration. Read your policy or call your agent before scheduling.",
       canonical: "/learn/why-some-claims-not-fully-covered",
+      noindex: ENTRY.placeholder ?? false,
       schema: [
         buildArticleSchema({
           headline: "Why Some Insurance Claims Don't Cover Full Replacement",

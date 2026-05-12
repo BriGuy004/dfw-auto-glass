@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { buildArticleSchema, buildBreadcrumbListSchema } from "@/lib/schema";
+import { learnArticles } from "@/data/learn";
+
+const ENTRY = learnArticles.find((a) => a.slug === "adas-calibration-explained")!;
 
 export const Route = createFileRoute("/learn/adas-calibration-explained")({
   component: LearnPage,
@@ -11,6 +14,7 @@ export const Route = createFileRoute("/learn/adas-calibration-explained")({
       description:
         "Most 2018+ vehicles require ADAS calibration after windshield replacement. Lane assist, auto braking, adaptive cruise depend on cameras mounted to the glass. Skipping calibration is unsafe.",
       canonical: "/learn/adas-calibration-explained",
+      noindex: ENTRY.placeholder ?? false,
       schema: [
         buildArticleSchema({
           headline: "ADAS Calibration: Why It Matters After Windshield Replacement",
