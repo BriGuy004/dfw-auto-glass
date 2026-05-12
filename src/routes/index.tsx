@@ -3,6 +3,9 @@ import heroImg from "@/assets/hero-windshield.jpg";
 import mobileImg from "@/assets/mobile-service.jpg";
 import mirrorImg from "@/assets/side-mirror.jpg";
 import { buildSeo } from "@/lib/seo";
+import { siteConfig } from "@/config/site";
+import { services } from "@/data/services";
+import { cities } from "@/data/cities";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -14,81 +17,14 @@ export const Route = createFileRoute("/")({
     }),
 });
 
-const PHONE = "(214) 555-0123";
-const TEL = "tel:2145550123";
+const PHONE = siteConfig.phone.display;
+const TEL = `tel:${siteConfig.phone.tel}`;
 
-const cities = [
-  "Dallas", "Fort Worth", "Plano", "Arlington", "Irving", "Frisco",
-  "Garland", "McKinney", "Mesquite", "Richardson", "Denton", "Grand Prairie",
-  "Carrollton", "Lewisville", "Allen", "Grapevine", "Euless", "Coppell",
-];
-
-const services = [
-  {
-    title: "Auto Glass Repair in the DFW Metroplex",
-    body:
-      "Small chips and stress cracks don't have to mean a full windshield. Our technicians repair most damage in under 30 minutes, restoring strength and visibility without the price tag of a replacement.",
-    img: heroImg,
-  },
-  {
-    title: "Windshield Replacement",
-    body:
-      "When damage is too large or in the driver's line of sight, we install OEM-quality glass calibrated to your vehicle. Same-day appointments are available across the DFW Metroplex.",
-    img: mirrorImg,
-    reverse: true,
-  },
-  {
-    title: "Side & Rear Window Replacement",
-    body:
-      "Broken side window from a break-in? We clean up the glass, vacuum the interior, and install new tempered glass that matches the original — usually the same day you call.",
-    img: mirrorImg,
-  },
-  {
-    title: "Side Mirror Repair & Replacement",
-    body:
-      "From cracked mirror glass to a fully knocked-off housing, we source the right part for your make and model and have you back on the road quickly.",
-    img: mirrorImg,
-    reverse: true,
-  },
-  {
-    title: "Sunroof & Moonroof Glass",
-    body:
-      "Sunroofs are tricky — and most shops won't touch them. We replace and reseal sunroof glass on a wide range of vehicles, with workmanship you can trust.",
-    img: heroImg,
-  },
-  {
-    title: "Mobile Service — We Come To You",
-    body:
-      "Home, office, or roadside in the DFW Metroplex, our fully-stocked vans bring the shop to your driveway. No tow trucks, no waiting rooms, no wasted day off.",
-    img: mobileImg,
-    reverse: true,
-  },
-];
+const SERVICE_IMAGES = [heroImg, mirrorImg, mobileImg];
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Top bar */}
-      <header className="border-b border-border bg-background/80 backdrop-blur sticky top-0 z-30">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <a href="#" className="flex items-baseline gap-2">
-            <span className="text-xl font-extrabold tracking-tight">DFW Auto Glass Pros</span>
-          </a>
-          <nav className="hidden gap-6 text-sm font-medium md:flex">
-            <a href="#services" className="hover:text-brand">Services</a>
-            <a href="#areas" className="hover:text-brand">Service Area</a>
-            <a href="#faq" className="hover:text-brand">FAQ</a>
-            <a href="#contact" className="hover:text-brand">Contact</a>
-          </nav>
-          <a
-            href={TEL}
-            className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground shadow hover:opacity-90"
-          >
-            {PHONE}
-          </a>
-        </div>
-      </header>
-
+    <div className="bg-background text-foreground">
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
@@ -174,30 +110,29 @@ function Index() {
           <p className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground">
             Everything you need to keep your auto glass safe and clear — done right the first time.
           </p>
-          <div className="mt-12 space-y-12">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((s, i) => (
-              <div
-                key={s.title}
-                className={`grid items-center gap-8 md:grid-cols-2 ${s.reverse ? "md:[&>div:first-child]:order-2" : ""}`}
+              <a
+                key={s.slug}
+                href={`/services/${s.slug}`}
+                className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:border-brand hover:shadow-md"
               >
-                <div>
-                  <img
-                    src={s.img}
-                    alt={s.title}
-                    width={1280}
-                    height={896}
-                    loading="lazy"
-                    className="aspect-[4/3] w-full rounded-xl object-cover shadow"
-                  />
+                <img
+                  src={SERVICE_IMAGES[i % SERVICE_IMAGES.length]}
+                  alt={s.name}
+                  width={1280}
+                  height={896}
+                  loading="lazy"
+                  className="aspect-[4/3] w-full object-cover"
+                />
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-xl font-bold">{s.name}</h3>
+                  <p className="mt-2 flex-1 text-sm text-muted-foreground">{s.excerpt}</p>
+                  <span className="mt-4 inline-block text-sm font-semibold text-brand group-hover:underline">
+                    Learn more →
+                  </span>
                 </div>
-                <div>
-                  <h3 className="text-2xl font-bold">{s.title}</h3>
-                  <p className="mt-3 text-muted-foreground">{s.body}</p>
-                  <a href={TEL} className="mt-4 inline-block font-semibold text-brand hover:underline">
-                    Call {PHONE} →
-                  </a>
-                </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -245,11 +180,13 @@ function Index() {
           </p>
           <ul className="mt-10 grid grid-cols-2 gap-3 text-center sm:grid-cols-3 md:grid-cols-4">
             {cities.map((c) => (
-              <li
-                key={c}
-                className="rounded-md border border-border bg-card px-4 py-3 font-medium hover:border-brand"
-              >
-                {c}, TX
+              <li key={c.slug}>
+                <a
+                  href={`/locations/${c.slug}`}
+                  className="block rounded-md border border-border bg-card px-4 py-3 font-medium transition hover:border-brand hover:text-brand"
+                >
+                  {c.name}, TX
+                </a>
               </li>
             ))}
           </ul>
@@ -298,10 +235,6 @@ function Index() {
           </a>
         </div>
       </section>
-
-      <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} DFW Auto Glass Pros · Serving the entire DFW Metroplex
-      </footer>
     </div>
   );
 }

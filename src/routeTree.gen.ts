@@ -9,6 +9,9 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
 import { Route as LocationsIndexRouteImport } from './routes/locations/index'
@@ -47,6 +50,21 @@ import { Route as LearnHailDamageWindshieldOptionsRouteImport } from './routes/l
 import { Route as LearnCrackedWindshieldHowLongDriveRouteImport } from './routes/learn/cracked-windshield-how-long-drive'
 import { Route as LearnAdasCalibrationExplainedRouteImport } from './routes/learn/adas-calibration-explained'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -256,6 +274,9 @@ const LearnAdasCalibrationExplainedRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/learn/adas-calibration-explained': typeof LearnAdasCalibrationExplainedRoute
   '/learn/cracked-windshield-how-long-drive': typeof LearnCrackedWindshieldHowLongDriveRoute
   '/learn/hail-damage-windshield-options': typeof LearnHailDamageWindshieldOptionsRoute
@@ -295,6 +316,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/learn/adas-calibration-explained': typeof LearnAdasCalibrationExplainedRoute
   '/learn/cracked-windshield-how-long-drive': typeof LearnCrackedWindshieldHowLongDriveRoute
   '/learn/hail-damage-windshield-options': typeof LearnHailDamageWindshieldOptionsRoute
@@ -335,6 +359,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/learn/adas-calibration-explained': typeof LearnAdasCalibrationExplainedRoute
   '/learn/cracked-windshield-how-long-drive': typeof LearnCrackedWindshieldHowLongDriveRoute
   '/learn/hail-damage-windshield-options': typeof LearnHailDamageWindshieldOptionsRoute
@@ -376,6 +403,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/privacy'
+    | '/terms'
     | '/learn/adas-calibration-explained'
     | '/learn/cracked-windshield-how-long-drive'
     | '/learn/hail-damage-windshield-options'
@@ -415,6 +445,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/privacy'
+    | '/terms'
     | '/learn/adas-calibration-explained'
     | '/learn/cracked-windshield-how-long-drive'
     | '/learn/hail-damage-windshield-options'
@@ -454,6 +487,9 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/privacy'
+    | '/terms'
     | '/learn/adas-calibration-explained'
     | '/learn/cracked-windshield-how-long-drive'
     | '/learn/hail-damage-windshield-options'
@@ -494,6 +530,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
   LearnAdasCalibrationExplainedRoute: typeof LearnAdasCalibrationExplainedRoute
   LearnCrackedWindshieldHowLongDriveRoute: typeof LearnCrackedWindshieldHowLongDriveRoute
   LearnHailDamageWindshieldOptionsRoute: typeof LearnHailDamageWindshieldOptionsRoute
@@ -534,6 +573,27 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -798,6 +858,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
   LearnAdasCalibrationExplainedRoute: LearnAdasCalibrationExplainedRoute,
   LearnCrackedWindshieldHowLongDriveRoute:
     LearnCrackedWindshieldHowLongDriveRoute,
