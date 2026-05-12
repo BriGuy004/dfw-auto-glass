@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { services } from "@/data/services";
+import { buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/services/")({
   component: ServicesHub,
@@ -10,6 +11,14 @@ export const Route = createFileRoute("/services/")({
       description:
         "Full-service auto glass in Dallas-Fort Worth: windshield replacement & repair, side and rear glass, sunroof, ADAS calibration, mobile and same-day service.",
       canonical: "/services",
+      schema: [
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Services", url: "/services", position: 2 },
+          ],
+        }),
+      ],
     }),
 });
 

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { cities } from "@/data/cities";
+import { buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/locations/")({
   component: LocationsHub,
@@ -10,6 +11,14 @@ export const Route = createFileRoute("/locations/")({
       description:
         "Mobile auto glass coverage across the DFW Metroplex — Dallas, Plano, Garland, Mesquite, Richardson, Carrollton, Irving, Lewisville, and surrounding suburbs.",
       canonical: "/locations",
+      schema: [
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Locations", url: "/locations", position: 2 },
+          ],
+        }),
+      ],
     }),
 });
 

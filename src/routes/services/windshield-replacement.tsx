@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildServiceSchema, buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/services/windshield-replacement")({
   component: ServicePage,
@@ -10,6 +11,20 @@ export const Route = createFileRoute("/services/windshield-replacement")({
       description:
         "Windshield replacement in Dallas-Fort Worth. Same-day mobile service, ADAS calibration included, no insurance required. Free quotes with photo.",
       canonical: "/services/windshield-replacement",
+      schema: [
+        buildServiceSchema({
+          serviceName: "Windshield Replacement",
+          serviceDescription: "Windshield replacement in Dallas-Fort Worth. Same-day mobile service, ADAS calibration included, no insurance required. Free quotes with photo.",
+          areaServed: siteConfig.cities.map((c) => `${c.name}, TX`),
+        }),
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Services", url: "/services", position: 2 },
+            { name: "Windshield Replacement", url: "/services/windshield-replacement", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

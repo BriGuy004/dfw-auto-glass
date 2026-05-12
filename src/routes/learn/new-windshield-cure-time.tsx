@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildArticleSchema, buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/learn/new-windshield-cure-time")({
   component: LearnPage,
@@ -10,6 +11,19 @@ export const Route = createFileRoute("/learn/new-windshield-cure-time")({
       description:
         "Most adhesives reach Safe Drive-Away Time in 30-60 minutes. Full cure takes 24 hours. Avoid car washes for 48 hours and slamming doors for 24 hours.",
       canonical: "/learn/new-windshield-cure-time",
+      schema: [
+        buildArticleSchema({
+          headline: "How Long Should a New Windshield Cure Before Driving?",
+          description: "Most adhesives reach Safe Drive-Away Time in 30-60 minutes. Full cure takes 24 hours. Avoid car washes for 48 hours and slamming doors for 24 hours.",
+        }),
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Learn", url: "/learn", position: 2 },
+            { name: "How Long Should a New Windshield Cure Before Driving?", url: "/learn/new-windshield-cure-time", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

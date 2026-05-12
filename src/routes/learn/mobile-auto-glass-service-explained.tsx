@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildArticleSchema, buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/learn/mobile-auto-glass-service-explained")({
   component: LearnPage,
@@ -10,6 +11,19 @@ export const Route = createFileRoute("/learn/mobile-auto-glass-service-explained
       description:
         "Mobile auto glass service comes to your home, office, or driveway. We bring the tools, the glass, and the calibration equipment. Here is what to expect.",
       canonical: "/learn/mobile-auto-glass-service-explained",
+      schema: [
+        buildArticleSchema({
+          headline: "Mobile Auto Glass Service: How It Works in Dallas",
+          description: "Mobile auto glass service comes to your home, office, or driveway. We bring the tools, the glass, and the calibration equipment. Here is what to expect.",
+        }),
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Learn", url: "/learn", position: 2 },
+            { name: "Mobile Auto Glass Service: How It Works in Dallas", url: "/learn/mobile-auto-glass-service-explained", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

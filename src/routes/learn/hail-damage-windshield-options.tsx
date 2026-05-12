@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildArticleSchema, buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/learn/hail-damage-windshield-options")({
   component: LearnPage,
@@ -10,6 +11,19 @@ export const Route = createFileRoute("/learn/hail-damage-windshield-options")({
       description:
         "Hail-damaged windshields can be repaired if chips are small and few; replaced if shattered or in driver line of sight. Texas comprehensive coverage typically pays.",
       canonical: "/learn/hail-damage-windshield-options",
+      schema: [
+        buildArticleSchema({
+          headline: "Hail Damage to Windshields: Your Options in Dallas",
+          description: "Hail-damaged windshields can be repaired if chips are small and few; replaced if shattered or in driver line of sight. Texas comprehensive coverage typically pays.",
+        }),
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Learn", url: "/learn", position: 2 },
+            { name: "Hail Damage to Windshields: Your Options in Dallas", url: "/learn/hail-damage-windshield-options", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

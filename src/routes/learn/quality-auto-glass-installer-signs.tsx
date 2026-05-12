@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildArticleSchema, buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/learn/quality-auto-glass-installer-signs")({
   component: LearnPage,
@@ -10,6 +11,19 @@ export const Route = createFileRoute("/learn/quality-auto-glass-installer-signs"
       description:
         "A quality installer uses urethane primers, OEM-spec adhesive, proper safe drive-away timing, and certified ADAS calibration. Cheap shops cut corners on all four.",
       canonical: "/learn/quality-auto-glass-installer-signs",
+      schema: [
+        buildArticleSchema({
+          headline: "How to Spot a Quality Auto Glass Installer",
+          description: "A quality installer uses urethane primers, OEM-spec adhesive, proper safe drive-away timing, and certified ADAS calibration. Cheap shops cut corners on all four.",
+        }),
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Learn", url: "/learn", position: 2 },
+            { name: "How to Spot a Quality Auto Glass Installer", url: "/learn/quality-auto-glass-installer-signs", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

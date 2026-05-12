@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildServiceSchema, buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/services/adas-calibration")({
   component: ServicePage,
@@ -10,6 +11,20 @@ export const Route = createFileRoute("/services/adas-calibration")({
       description:
         "ADAS calibration after windshield replacement in Dallas. Required for lane assist, automatic braking, adaptive cruise. Done right or your safety systems fail.",
       canonical: "/services/adas-calibration",
+      schema: [
+        buildServiceSchema({
+          serviceName: "ADAS Calibration",
+          serviceDescription: "ADAS calibration after windshield replacement in Dallas. Required for lane assist, automatic braking, adaptive cruise. Done right or your safety systems fail.",
+          areaServed: siteConfig.cities.map((c) => `${c.name}, TX`),
+        }),
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Services", url: "/services", position: 2 },
+            { name: "ADAS Calibration", url: "/services/adas-calibration", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

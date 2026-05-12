@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildServiceSchema, buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/services/side-window-replacement")({
   component: ServicePage,
@@ -10,6 +11,20 @@ export const Route = createFileRoute("/services/side-window-replacement")({
       description:
         "Broken side window or door glass in Dallas? Same-day mobile replacement service across DFW. Free quotes.",
       canonical: "/services/side-window-replacement",
+      schema: [
+        buildServiceSchema({
+          serviceName: "Side Window Replacement",
+          serviceDescription: "Broken side window or door glass in Dallas? Same-day mobile replacement service across DFW. Free quotes.",
+          areaServed: siteConfig.cities.map((c) => `${c.name}, TX`),
+        }),
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Services", url: "/services", position: 2 },
+            { name: "Side Window Replacement", url: "/services/side-window-replacement", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildArticleSchema, buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/learn/windshield-replacement-cost-dallas")({
   component: LearnPage,
@@ -10,6 +11,19 @@ export const Route = createFileRoute("/learn/windshield-replacement-cost-dallas"
       description:
         "Windshield replacement cost in Dallas typically runs $300-$700 for sedans, $400-$900 for SUVs/trucks, more for ADAS-equipped vehicles. OEM vs aftermarket affects pricing.",
       canonical: "/learn/windshield-replacement-cost-dallas",
+      schema: [
+        buildArticleSchema({
+          headline: "How Much Does Windshield Replacement Cost in Dallas?",
+          description: "Windshield replacement cost in Dallas typically runs $300-$700 for sedans, $400-$900 for SUVs/trucks, more for ADAS-equipped vehicles. OEM vs aftermarket affects pricing.",
+        }),
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Learn", url: "/learn", position: 2 },
+            { name: "How Much Does Windshield Replacement Cost in Dallas?", url: "/learn/windshield-replacement-cost-dallas", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

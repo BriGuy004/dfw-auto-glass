@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildServiceSchema, buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/services/same-day-service")({
   component: ServicePage,
@@ -10,6 +11,20 @@ export const Route = createFileRoute("/services/same-day-service")({
       description:
         "Same-day windshield replacement and repair in Dallas. Emergency auto glass service when you need it now. Mobile dispatch across DFW.",
       canonical: "/services/same-day-service",
+      schema: [
+        buildServiceSchema({
+          serviceName: "Same-Day Service",
+          serviceDescription: "Same-day windshield replacement and repair in Dallas. Emergency auto glass service when you need it now. Mobile dispatch across DFW.",
+          areaServed: siteConfig.cities.map((c) => `${c.name}, TX`),
+        }),
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Services", url: "/services", position: 2 },
+            { name: "Same-Day Service", url: "/services/same-day-service", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

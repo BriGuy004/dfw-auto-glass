@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildArticleSchema, buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/learn/how-long-windshield-replacement-takes")({
   component: LearnPage,
@@ -10,6 +11,19 @@ export const Route = createFileRoute("/learn/how-long-windshield-replacement-tak
       description:
         "Windshield replacement typically takes 60-90 minutes plus 1 hour Safe Drive-Away Time. ADAS-equipped vehicles add 30-60 minutes for calibration.",
       canonical: "/learn/how-long-windshield-replacement-takes",
+      schema: [
+        buildArticleSchema({
+          headline: "How Long Does a Windshield Replacement Take?",
+          description: "Windshield replacement typically takes 60-90 minutes plus 1 hour Safe Drive-Away Time. ADAS-equipped vehicles add 30-60 minutes for calibration.",
+        }),
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Learn", url: "/learn", position: 2 },
+            { name: "How Long Does a Windshield Replacement Take?", url: "/learn/how-long-windshield-replacement-takes", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

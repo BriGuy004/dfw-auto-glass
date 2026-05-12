@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildServiceSchema, buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/services/back-window-replacement")({
   component: ServicePage,
@@ -10,6 +11,20 @@ export const Route = createFileRoute("/services/back-window-replacement")({
       description:
         "Rear window replacement in Dallas-Fort Worth. Mobile service, defroster reconnection included. Free quotes.",
       canonical: "/services/back-window-replacement",
+      schema: [
+        buildServiceSchema({
+          serviceName: "Back Window Replacement",
+          serviceDescription: "Rear window replacement in Dallas-Fort Worth. Mobile service, defroster reconnection included. Free quotes.",
+          areaServed: siteConfig.cities.map((c) => `${c.name}, TX`),
+        }),
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Services", url: "/services", position: 2 },
+            { name: "Back Window Replacement", url: "/services/back-window-replacement", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

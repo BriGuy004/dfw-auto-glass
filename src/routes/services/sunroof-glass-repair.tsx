@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildServiceSchema, buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/services/sunroof-glass-repair")({
   component: ServicePage,
@@ -10,6 +11,20 @@ export const Route = createFileRoute("/services/sunroof-glass-repair")({
       description:
         "Sunroof or moonroof glass repair in Dallas. Specialty service for cracked, leaking, or shattered sunroofs. Free quotes.",
       canonical: "/services/sunroof-glass-repair",
+      schema: [
+        buildServiceSchema({
+          serviceName: "Sunroof Glass Repair",
+          serviceDescription: "Sunroof or moonroof glass repair in Dallas. Specialty service for cracked, leaking, or shattered sunroofs. Free quotes.",
+          areaServed: siteConfig.cities.map((c) => `${c.name}, TX`),
+        }),
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Services", url: "/services", position: 2 },
+            { name: "Sunroof Glass Repair", url: "/services/sunroof-glass-repair", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

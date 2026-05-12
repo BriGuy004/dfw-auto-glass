@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildArticleSchema, buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/learn/windshield-wiper-issues-after-replacement")({
   component: LearnPage,
@@ -10,6 +11,19 @@ export const Route = createFileRoute("/learn/windshield-wiper-issues-after-repla
       description:
         "New windshield streaking? Usually wiper blades adapted to old glass curvature. Replace blades at the same time as windshield. Cleaning the new glass also helps.",
       canonical: "/learn/windshield-wiper-issues-after-replacement",
+      schema: [
+        buildArticleSchema({
+          headline: "Windshield Wiper Streaks After Replacement: Causes & Fixes",
+          description: "New windshield streaking? Usually wiper blades adapted to old glass curvature. Replace blades at the same time as windshield. Cleaning the new glass also helps.",
+        }),
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Learn", url: "/learn", position: 2 },
+            { name: "Windshield Wiper Streaks After Replacement: Causes & Fixes", url: "/learn/windshield-wiper-issues-after-replacement", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

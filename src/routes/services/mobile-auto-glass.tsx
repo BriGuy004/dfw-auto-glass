@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildServiceSchema, buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/services/mobile-auto-glass")({
   component: ServicePage,
@@ -10,6 +11,20 @@ export const Route = createFileRoute("/services/mobile-auto-glass")({
       description:
         "Mobile auto glass service across Dallas-Fort Worth. We come to your home, office, or anywhere safe to park. Same-day available.",
       canonical: "/services/mobile-auto-glass",
+      schema: [
+        buildServiceSchema({
+          serviceName: "Mobile Auto Glass",
+          serviceDescription: "Mobile auto glass service across Dallas-Fort Worth. We come to your home, office, or anywhere safe to park. Same-day available.",
+          areaServed: siteConfig.cities.map((c) => `${c.name}, TX`),
+        }),
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Services", url: "/services", position: 2 },
+            { name: "Mobile Auto Glass", url: "/services/mobile-auto-glass", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

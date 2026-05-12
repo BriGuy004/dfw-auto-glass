@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/locations/richardson")({
   component: LocationPage,
@@ -10,6 +11,15 @@ export const Route = createFileRoute("/locations/richardson")({
       description:
         "Auto glass in Richardson, TX. Windshield replacement, repair, mobile service. Same-day quotes. No insurance required.",
       canonical: "/locations/richardson",
+      schema: [
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Locations", url: "/locations", position: 2 },
+            { name: "Richardson", url: "/locations/richardson", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

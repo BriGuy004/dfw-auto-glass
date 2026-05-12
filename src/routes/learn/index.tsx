@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { learnArticles } from "@/data/learn";
+import { buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/learn/")({
   component: LearnHub,
@@ -10,6 +11,14 @@ export const Route = createFileRoute("/learn/")({
       description:
         "Plain-English guides for Dallas drivers: windshield repair vs replacement, Texas glass laws, insurance claims, ADAS calibration, OEM vs aftermarket, and more.",
       canonical: "/learn",
+      schema: [
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Learn", url: "/learn", position: 2 },
+          ],
+        }),
+      ],
     }),
 });
 

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildServiceSchema, buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/services/commercial-fleet-glass")({
   component: ServicePage,
@@ -10,6 +11,20 @@ export const Route = createFileRoute("/services/commercial-fleet-glass")({
       description:
         "Commercial fleet auto glass service in Dallas. Volume pricing, scheduled maintenance, billing accounts for delivery, contractor, and service fleets.",
       canonical: "/services/commercial-fleet-glass",
+      schema: [
+        buildServiceSchema({
+          serviceName: "Commercial Fleet Glass",
+          serviceDescription: "Commercial fleet auto glass service in Dallas. Volume pricing, scheduled maintenance, billing accounts for delivery, contractor, and service fleets.",
+          areaServed: siteConfig.cities.map((c) => `${c.name}, TX`),
+        }),
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Services", url: "/services", position: 2 },
+            { name: "Commercial Fleet Glass", url: "/services/commercial-fleet-glass", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

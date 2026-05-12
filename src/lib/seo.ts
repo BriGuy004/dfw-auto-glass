@@ -6,9 +6,17 @@ interface SeoProps {
   canonical?: string;
   ogImage?: string;
   noindex?: boolean;
+  schema?: object[];
 }
 
-export function buildSeo({ title, description, canonical, ogImage, noindex }: SeoProps = {}) {
+export function buildSeo({
+  title,
+  description,
+  canonical,
+  ogImage,
+  noindex,
+  schema,
+}: SeoProps = {}) {
   const fullTitle = title
     ? `${title} | ${siteConfig.shortName}`
     : `${siteConfig.brandName} | ${siteConfig.tagline}`;
@@ -45,5 +53,9 @@ export function buildSeo({ title, description, canonical, ogImage, noindex }: Se
       { name: "twitter:image", content: image },
     ],
     links: [{ rel: "canonical", href: canonicalUrl }],
+    scripts: (schema ?? []).map((s) => ({
+      type: "application/ld+json",
+      children: JSON.stringify(s),
+    })),
   };
 }

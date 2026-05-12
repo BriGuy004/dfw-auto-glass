@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { buildArticleSchema, buildBreadcrumbListSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/learn/texas-windshield-laws")({
   component: LearnPage,
@@ -10,6 +11,19 @@ export const Route = createFileRoute("/learn/texas-windshield-laws")({
       description:
         "Texas Transportation Code requires windshields free of cracks that obstruct vision. Severely cracked windshields fail state inspection. Glass-only insurance claims do not raise premiums.",
       canonical: "/learn/texas-windshield-laws",
+      schema: [
+        buildArticleSchema({
+          headline: "Texas Windshield Laws: What Drivers Need to Know",
+          description: "Texas Transportation Code requires windshields free of cracks that obstruct vision. Severely cracked windshields fail state inspection. Glass-only insurance claims do not raise premiums.",
+        }),
+        buildBreadcrumbListSchema({
+          items: [
+            { name: "Home", url: "/", position: 1 },
+            { name: "Learn", url: "/learn", position: 2 },
+            { name: "Texas Windshield Laws: What Drivers Need to Know", url: "/learn/texas-windshield-laws", position: 3 },
+          ],
+        }),
+      ],
     }),
 });
 

@@ -10,6 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import { buildSeo } from "@/lib/seo";
+import { buildLocalBusinessSchema } from "@/lib/schema";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 
@@ -72,10 +73,11 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => {
-    const seo = buildSeo();
+    const seo = buildSeo({ schema: [buildLocalBusinessSchema()] });
     return {
       meta: [{ charSet: "utf-8" }, ...seo.meta],
       links: [...seo.links, { rel: "stylesheet", href: appCss }],
+      scripts: seo.scripts,
     };
   },
   shellComponent: RootShell,
