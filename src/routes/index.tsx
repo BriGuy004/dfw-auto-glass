@@ -1,11 +1,158 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-windshield.jpg";
-import mobileImg from "@/assets/mobile-service.jpg";
-import mirrorImg from "@/assets/side-mirror.jpg";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { services } from "@/data/services";
 import { cities } from "@/data/cities";
+import { buildFAQPageSchema } from "@/lib/schema";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+const PHONE = siteConfig.phone.display;
+const TEL = `tel:${siteConfig.phone.tel}`;
+
+const SERVICE_TAGLINES: Record<string, string> = {
+  "windshield-replacement":
+    "Cracked or shattered? We replace your windshield with OEM-spec glass and proper recalibration when your vehicle requires it — often the same day you call.",
+  "windshield-repair":
+    "Chip or short crack? We repair many windshields in about 30 minutes, and insurance often helps reduce out-of-pocket cost.",
+  "side-window-replacement":
+    "Broken side window from a break-in or accident? We vacuum the glass and install new tempered glass, often the same day.",
+  "back-window-replacement":
+    "Rear glass shattered? We replace it and properly reconnect the defroster grid so it works the way it should.",
+  "sunroof-glass-repair":
+    "Cracked or leaking sunroof? We handle the specialty glass work many general shops avoid.",
+  "adas-calibration":
+    "Many modern vehicles need camera recalibration after windshield replacement. We handle it properly when your vehicle calls for it.",
+  "mobile-auto-glass":
+    "We come to you — home, office, driveway, parking lot, or job site. Most DFW locations covered same day.",
+  "same-day-service":
+    "Damage this morning? We can often have you taken care of by this afternoon, depending on vehicle and glass availability.",
+  "commercial-fleet-glass":
+    "Running a fleet? We support billing accounts, scheduled work, and fast turnaround for vehicles that cannot sit.",
+  "classic-car-glass":
+    "Restoring a vintage car? We help source specialty glass and trim for older vehicles and harder-to-find installations.",
+};
+
+const CITY_DESCRIPTIONS: Record<string, string> = {
+  dallas: "Uptown, Lakewood, Oak Cliff, North Dallas",
+  plano: "Willow Bend, Legacy, all major subdivisions",
+  garland: "Mobile windshield repair and replacement across Garland and Rowlett",
+  mesquite: "Same-day windshield service across Mesquite neighborhoods",
+  richardson: "Telecom Corridor, UTD area",
+  carrollton: "Including Farmers Branch and Addison",
+  irving: "Las Colinas, DFW Airport area",
+  lewisville: "Flower Mound, Castle Hills, The Colony",
+};
+
+const WHY_CARDS = [
+  {
+    title: "Mobile Service — We Come To You",
+    body: "You should not have to lose half a day to fix a windshield. Our mobile setup lets us meet you at home, at work, or wherever your vehicle is parked safely. No waiting room, no second trip, no unnecessary disruption.",
+  },
+  {
+    title: "Straightforward Pricing",
+    body: "Some drivers prefer to use insurance. Others would rather pay cash and keep the process simple. We quote both clearly when possible, explain what usually affects price, and help you choose the route that makes the most sense for your situation.",
+  },
+  {
+    title: "Recalibration When Needed",
+    body: "If your vehicle uses windshield-mounted cameras for lane assist, braking support, or other safety features, replacement may require recalibration. We account for that when needed so the systems tied to the glass are set back up correctly.",
+  },
+  {
+    title: "Same-Day Service Across DFW",
+    body: "A cracked windshield can turn into a bigger problem quickly, especially in Texas heat. When scheduling allows, we offer same-day mobile appointments across DFW and keep room open for urgent calls.",
+  },
+];
+
+const STEPS = [
+  {
+    title: "Call or Send a Photo",
+    body: `Call ${PHONE}, or text us a photo of the damage and your vehicle's year, make, and model. We usually respond within 15 minutes during business hours.`,
+  },
+  {
+    title: "Get an Instant Quote",
+    body: `We quote most jobs by phone after seeing the damage and your vehicle details. No "we'll get back to you" runaround — just straightforward cash and insurance pricing.`,
+  },
+  {
+    title: "We Come To You",
+    body: "Our mobile tech meets you at your home, office, or wherever your vehicle is parked safely. Most replacements take 60–90 minutes; many chip repairs take about 30 minutes.",
+  },
+  {
+    title: "Drive Away the Same Day",
+    body: "Most replacements are ready for safe drive-away about 60 minutes after installation. We'll walk you through cure time, aftercare, and what to avoid for the rest of the day.",
+  },
+];
+
+const VEHICLES = [
+  "Ford F-150",
+  "Chevy Silverado",
+  "RAM 1500",
+  "Toyota Camry",
+  "Honda Civic",
+  "Honda Accord",
+  "Toyota RAV4",
+  "Chevy Tahoe",
+  "Ford Explorer",
+  "Tesla Model 3",
+  "Tesla Model Y",
+  "BMW",
+  "Mercedes",
+  "Lexus",
+  "Audi",
+  "Subaru",
+  "Mazda",
+  "Jeep",
+  "Hyundai",
+  "Kia",
+];
+
+const PROOF_POINTS = [
+  "Same-day mobile service available for many DFW addresses",
+  "Quotes by phone or photo for most common jobs",
+  "OEM-spec materials and quality installation practices",
+  "Recalibration support for vehicles that require it",
+  "Service for windshield, side glass, rear glass, sunroof, fleet, and specialty jobs",
+  "Cash-pay and insurance-assisted options available",
+  "Coverage across Dallas, Plano, Garland, Mesquite, Richardson, Carrollton, Irving, and Lewisville",
+  "Clear aftercare guidance before you drive away",
+];
+
+const FAQS = [
+  {
+    question: "How much does windshield replacement cost in Dallas?",
+    answer:
+      "For many cars, cash pricing falls in the $300-$700 range. SUVs, trucks, and specialty vehicles can run higher, and vehicles with windshield-mounted safety systems may add recalibration cost depending on the make and model. We quote most jobs over the phone after you describe the vehicle and damage, so you have a clear idea before scheduling.",
+  },
+  {
+    question: "Do I need to use insurance?",
+    answer:
+      "No. Many Dallas drivers prefer to pay cash because it keeps the process simple, especially when the deductible is close to the repair cost. If you want to use insurance, we can help you understand how glass coverage usually works and what your deductible may be. Coverage depends on your policy, so it's smart to confirm details with your carrier first.",
+  },
+  {
+    question: "How long does it take?",
+    answer:
+      "Many chip repairs take about 30 minutes. Windshield replacement usually takes 60–90 minutes, followed by safe drive-away time once the adhesive has set enough for normal use. If your vehicle requires recalibration, that can add time. Most jobs are completed within about 2 hours, depending on the vehicle and the work involved.",
+  },
+  {
+    question: "What's ADAS calibration and why does it matter?",
+    answer:
+      "ADAS stands for Advanced Driver Assistance Systems — features like lane assist, automatic emergency braking, adaptive cruise control, and lane departure warning. Many of these systems rely on cameras mounted to or aligned with the windshield. After replacement, some vehicles require recalibration so those systems continue working properly. When your vehicle needs it, we handle it as part of the job.",
+  },
+  {
+    question: "Can I drive with a cracked windshield in Texas?",
+    answer:
+      "It depends on the crack. Damage that interferes with the driver's view can create inspection and safety issues, especially if it spreads. Smaller chips or short cracks may be less urgent legally, but they usually get worse in Texas heat. Either way, it's smart to get it looked at before a simple repair turns into a full replacement.",
+  },
+  {
+    question: "Do you really come to me?",
+    answer:
+      "Yes. We're mobile-first, and many jobs can be done at your home, office, parking lot, or another safe location. Some specialty jobs — like certain sunroof repairs or classic-car installations — may require a more controlled setting.",
+  },
+];
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -14,13 +161,9 @@ export const Route = createFileRoute("/")({
       description:
         "Cracked windshield in Dallas? Same-day mobile windshield replacement and repair across DFW. ADAS calibration, no insurance required. Free quotes — call or text photos.",
       canonical: "/",
+      schema: [buildFAQPageSchema({ faqs: FAQS })],
     }),
 });
-
-const PHONE = siteConfig.phone.display;
-const TEL = `tel:${siteConfig.phone.tel}`;
-
-const SERVICE_IMAGES = [heroImg, mirrorImg, mobileImg];
 
 function Index() {
   return (
@@ -33,18 +176,17 @@ function Index() {
               Serving the DFW Metroplex
             </p>
             <h1 className="text-4xl font-extrabold leading-tight md:text-5xl">
-              DFW Metroplex Auto Glass Repair & Windshield Replacement
+              Dallas Auto Glass Repair & Windshield Replacement Specialists
             </h1>
             <p className="mt-5 text-lg text-muted-foreground">
-              Fast, affordable, mobile auto glass service across Dallas, Fort Worth and the
-              surrounding DFW Metroplex. Cracked windshield? Broken window? We'll come to you.
+              Same-day mobile windshield replacement and repair across Dallas-Fort Worth. We come to your home, office, or workplace — no shop drop-off, no wasted day, and no insurance claim required.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href={TEL}
                 className="rounded-md bg-brand px-6 py-3 font-semibold text-brand-foreground shadow hover:opacity-90"
               >
-                Call Now {PHONE}
+                Call {PHONE}
               </a>
               <a
                 href="#quote"
@@ -92,100 +234,131 @@ function Index() {
         </div>
       </section>
 
-      {/* Intro */}
-      <section className="mx-auto max-w-4xl px-4 py-16 text-center">
-        <h2 className="text-3xl font-bold">Your Local DFW Auto Glass Team</h2>
-        <p className="mt-4 text-muted-foreground">
-          We're a DFW-based crew of certified auto glass technicians focused on one thing: getting
-          you safely back on the road. From a small rock chip on the Dallas North Tollway to a full
-          windshield replacement in Fort Worth, we handle it with care, the right tools, and
-          transparent pricing.
-        </p>
-      </section>
-
       {/* Services */}
-      <section id="services" className="bg-secondary/30 py-16">
+      <section id="services" className="bg-background py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-center text-3xl font-bold">Our Services</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground">
-            Everything you need to keep your auto glass safe and clear — done right the first time.
+          <h2 className="text-center text-3xl font-bold">Auto Glass Services Across Dallas-Fort Worth</h2>
+          <p className="mx-auto mt-4 max-w-3xl text-center text-muted-foreground">
+            From a small rock chip on I-635 to a shattered windshield after a North Texas hailstorm, we handle the auto glass problems Dallas drivers deal with most. Our mobile service covers Dallas, Plano, Garland, Mesquite, Richardson, Carrollton, Irving, and Lewisville — often the same day. Call or text for a free quote.
           </p>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((s, i) => (
-              <a
+            {services.map((s) => (
+              <div
                 key={s.slug}
-                href={`/services/${s.slug}`}
-                className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:border-brand hover:shadow-md"
+                className="flex flex-col rounded-xl border border-border bg-card p-6 shadow-sm transition hover:border-brand hover:shadow-md"
               >
-                <img
-                  src={SERVICE_IMAGES[i % SERVICE_IMAGES.length]}
-                  alt=""
-                  width={1280}
-                  height={896}
-                  loading="lazy"
-                  className="aspect-[4/3] w-full object-cover"
-                />
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="text-xl font-bold">{s.name}</h3>
-                  <p className="mt-2 flex-1 text-sm text-muted-foreground">{s.excerpt}</p>
-                  <span className="mt-4 inline-block text-sm font-semibold text-brand group-hover:underline">
+                <h3 className="text-xl font-bold">{s.shortName}</h3>
+                <p className="mt-3 flex-1 text-sm text-muted-foreground">
+                  {SERVICE_TAGLINES[s.slug] ?? s.excerpt}
+                </p>
+                <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold">
+                  <a href={TEL} className="text-brand hover:underline">
+                    Call {PHONE}
+                  </a>
+                  <a href={`/services/${s.slug}`} className="text-brand hover:underline">
                     Learn more →
-                  </span>
+                  </a>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section id="faq" className="mx-auto max-w-4xl px-4 py-16">
-        <h2 className="text-center text-3xl font-bold">Auto Glass FAQ</h2>
-        <div className="mt-8 space-y-4">
-          {[
-            {
-              q: "What should I do the moment my windshield cracks?",
-              a: "Cover the chip with clear tape to keep dirt out, avoid temperature shocks (no blasting AC or heat), and call us as soon as possible. The sooner we see it, the more likely a quick repair beats a full replacement.",
-            },
-            {
-              q: "Will my insurance cover the repair?",
-              a: "In Texas, comprehensive coverage typically pays for windshield repair and replacement, often with no deductible. We'll help you file the claim — most customers pay nothing out of pocket.",
-            },
-            {
-              q: "How long does a repair or replacement take?",
-              a: "Most chip repairs take 20–30 minutes. A full windshield replacement is usually 60–90 minutes, plus a short safe-drive-away time before you can hit the road.",
-            },
-            {
-              q: "Do you really come to me?",
-              a: "Yes. Our mobile vans are stocked to handle most jobs at your home, office, or worksite anywhere in the DFW Metroplex.",
-            },
-          ].map((f) => (
-            <details key={f.q} className="group rounded-lg border border-border bg-card p-5">
-              <summary className="cursor-pointer list-none font-semibold">
-                {f.q}
-                <span className="float-right text-brand transition group-open:rotate-45">+</span>
-              </summary>
-              <p className="mt-3 text-muted-foreground">{f.a}</p>
-            </details>
-          ))}
+      {/* Why Dallas Drivers Choose Us */}
+      <section className="bg-secondary/30 py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-center text-3xl font-bold">Why Dallas Drivers Choose Us</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
+            Four things separate us from chain shops and shop-only providers:
+          </p>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {WHY_CARDS.map((c) => (
+              <div key={c.title} className="rounded-xl border border-border bg-card p-6 shadow-sm">
+                <h3 className="text-xl font-bold">{c.title}</h3>
+                <p className="mt-3 text-muted-foreground">{c.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Service area */}
-      <section id="areas" className="bg-secondary/30 py-16">
+      {/* How It Works */}
+      <section className="bg-background py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-center text-3xl font-bold">DFW Mobile Auto Glass Service Area</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground">
-            We dispatch mobile techs across the entire DFW Metroplex — and most surrounding suburbs.
+          <h2 className="text-center text-3xl font-bold">How It Works</h2>
+          <ol className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {STEPS.map((s, i) => (
+              <li
+                key={s.title}
+                className="flex flex-col rounded-xl border border-border bg-card p-6 shadow-sm"
+              >
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-brand font-bold text-brand-foreground">
+                  {i + 1}
+                </span>
+                <h3 className="mt-4 text-lg font-bold">{s.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{s.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Insurance */}
+      <section className="bg-secondary/30 py-16">
+        <div className="mx-auto max-w-3xl px-4">
+          <h2 className="text-3xl font-bold">How Auto Glass Insurance Usually Works in Texas</h2>
+          <div className="mt-6 space-y-4 text-muted-foreground">
+            <p>
+              This is one of the first questions Dallas drivers ask — and one of the areas where clear answers matter most.
+            </p>
+            <p>
+              In many cases, comprehensive coverage helps pay for auto glass repair or replacement in Texas. Coverage depends on your policy, your deductible, and the type of damage, so it's always smart to confirm the details with your insurer before assuming what is covered.
+            </p>
+            <p>
+              For small chip repairs, many drivers pay little or nothing out of pocket when insurance applies. For full windshield replacement, your comprehensive deductible often matters most. If your deductible is close to or higher than the replacement cost, paying cash can sometimes make more sense.
+            </p>
+            <p>
+              That's why we offer both options clearly. We can help you understand whether it makes more sense to use insurance or take straightforward cash pricing and skip the claims process entirely.
+            </p>
+            <p>
+              We regularly work with major carriers including State Farm, Allstate, Geico, USAA, Progressive, Liberty Mutual, and Nationwide. If you want to go through insurance, we can help you understand the next step. If you would rather pay cash, we can quote that too — no pressure either way.
+            </p>
+          </div>
+          <p className="mt-6 text-sm font-semibold">
+            Learn more:{" "}
+            <a
+              href="/learn/insurance-windshield-replacement-texas"
+              className="text-brand hover:underline"
+            >
+              How Texas Windshield Insurance Works →
+            </a>{" "}
+            ·{" "}
+            <a href="/learn/texas-windshield-laws" className="text-brand hover:underline">
+              Texas Windshield Laws →
+            </a>
           </p>
-          <ul className="mt-10 grid grid-cols-2 gap-3 text-center sm:grid-cols-3 md:grid-cols-4">
+        </div>
+      </section>
+
+      {/* Serving Drivers Across DFW */}
+      <section id="areas" className="bg-background py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-center text-3xl font-bold">Serving Drivers Across DFW</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
+            We serve Dallas and the major surrounding suburbs across the DFW Metroplex, with same-day service available for many addresses.
+          </p>
+          <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {cities.map((c) => (
               <li key={c.slug}>
                 <a
                   href={`/locations/${c.slug}`}
-                  className="block rounded-md border border-border bg-card px-4 py-3 font-medium transition hover:border-brand hover:text-brand"
+                  className="block h-full rounded-xl border border-border bg-card p-5 transition hover:border-brand hover:shadow-md"
                 >
-                  {c.name}, TX
+                  <p className="font-semibold">{c.name}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {CITY_DESCRIPTIONS[c.slug] ?? c.excerpt}
+                  </p>
                 </a>
               </li>
             ))}
@@ -193,46 +366,88 @@ function Index() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-center text-3xl font-bold">What DFW Drivers Say</h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {[
-            {
-              q: "Caught a rock on I-635 and they had me fixed in my office parking lot the next morning. Painless.",
-              n: "— Marcus R., Dallas",
-            },
-            {
-              q: "Insurance handled it, the tech was friendly, and the new windshield looks factory. Highly recommend.",
-              n: "— Priya S., Plano",
-            },
-            {
-              q: "Great price on a side window after someone broke into my truck. Cleaned up every shard. Lifesavers.",
-              n: "— Jake M., Fort Worth",
-            },
-          ].map((t) => (
-            <figure key={t.n} className="rounded-xl border border-border bg-card p-6 shadow-sm">
-              <blockquote className="italic text-muted-foreground">"{t.q}"</blockquote>
-              <figcaption className="mt-4 text-sm font-semibold">{t.n}</figcaption>
-            </figure>
-          ))}
+      {/* All Makes & Models */}
+      <section className="bg-secondary/30 py-16">
+        <div className="mx-auto max-w-4xl px-4">
+          <h2 className="text-3xl font-bold">All Makes & Models</h2>
+          <p className="mt-4 text-muted-foreground">
+            We service the vehicles Dallas drivers actually own — from F-150s and Silverados to Hondas, Toyotas, Teslas, and other ADAS-equipped vehicles that may require careful recalibration. Truck, SUV, sedan, classic car, or commercial vehicle — call with your year, make, and model and we'll tell you what the job likely involves and how pricing usually works.
+          </p>
+          <ul className="mt-8 flex flex-wrap gap-2">
+            {VEHICLES.map((v) => (
+              <li
+                key={v}
+                className="rounded-full border border-border bg-card px-3 py-1 text-sm text-muted-foreground"
+              >
+                {v}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {/* CTA */}
-      <section id="contact" className="bg-ink py-16 text-brand-foreground" style={{ backgroundColor: "var(--ink)" }}>
-        <div className="mx-auto max-w-3xl px-4 text-center">
-          <h2 className="text-3xl font-bold">Ready When You Are</h2>
-          <p className="mt-3 opacity-80">
-            Call now for a free quote or to book a same-day mobile appointment anywhere in the DFW
-            Metroplex.
+      {/* Why Drivers Call Us First */}
+      <section className="bg-background py-16">
+        <div className="mx-auto max-w-3xl px-4">
+          <h2 className="text-3xl font-bold">Why Drivers Call Us First</h2>
+          <p className="mt-4 text-muted-foreground">
+            Before you even decide whether to use insurance or pay cash, here's what most customers are looking for — and what we're built around:
           </p>
-          <a
-            href={TEL}
-            className="mt-6 inline-block rounded-md bg-brand px-8 py-4 text-lg font-bold text-brand-foreground shadow hover:opacity-90"
-          >
-            Call {PHONE}
-          </a>
+          <ul className="mt-8 space-y-3">
+            {PROOF_POINTS.map((p) => (
+              <li key={p} className="flex gap-3">
+                <span className="mt-2 inline-block h-1.5 w-1.5 flex-none rounded-full bg-brand" />
+                <span className="text-muted-foreground">{p}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="bg-secondary/30 py-16">
+        <div className="mx-auto max-w-3xl px-4">
+          <h2 className="text-center text-3xl font-bold">Auto Glass FAQ</h2>
+          <Accordion type="single" collapsible className="mt-8">
+            {FAQS.map((f, i) => (
+              <AccordionItem key={f.question} value={`item-${i}`}>
+                <AccordionTrigger className="text-left font-semibold">
+                  {f.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  {f.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section
+        id="contact"
+        className="py-16 text-brand-foreground"
+        style={{ backgroundColor: "var(--ink)" }}
+      >
+        <div className="mx-auto max-w-3xl px-4 text-center">
+          <h2 className="text-3xl font-bold">Ready for a Free Quote?</h2>
+          <p className="mt-3 opacity-80">
+            Call now for same-day mobile service across DFW, or text us a photo of the damage for a fast quote during business hours.
+          </p>
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
+            <a
+              href={TEL}
+              className="rounded-md bg-brand px-8 py-4 text-lg font-bold text-brand-foreground shadow hover:opacity-90"
+            >
+              Call {PHONE}
+            </a>
+            <a
+              href="#quote"
+              className="rounded-md border border-brand-foreground/40 bg-transparent px-8 py-4 text-lg font-bold text-brand-foreground hover:bg-brand-foreground/10"
+            >
+              Get a Free Quote
+            </a>
+          </div>
         </div>
       </section>
     </div>
