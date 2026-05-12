@@ -119,7 +119,7 @@ function Index() {
               >
                 <img
                   src={SERVICE_IMAGES[i % SERVICE_IMAGES.length]}
-                  alt={s.name}
+                  alt=""
                   width={1280}
                   height={896}
                   loading="lazy"

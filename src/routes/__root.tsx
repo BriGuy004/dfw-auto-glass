@@ -76,7 +76,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     const seo = buildSeo({ schema: [buildLocalBusinessSchema()] });
     return {
       meta: [{ charSet: "utf-8" }, ...seo.meta],
-      links: [...seo.links, { rel: "stylesheet", href: appCss }],
+      links: [
+        ...seo.links,
+        { rel: "stylesheet", href: appCss },
+        { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      ],
       scripts: seo.scripts,
     };
   },

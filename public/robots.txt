@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.autoglassprosdallas.com/sitemap.xml
+
+# Block utility pages from being indexed (they have noindex meta already, but defense in depth)
+Disallow: /privacy
+Disallow: /terms
