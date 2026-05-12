@@ -13,6 +13,20 @@ export function buildLocalBusinessSchema() {
     telephone: siteConfig.phone.tel,
     priceRange: siteConfig.business.priceRange,
     openingHours: siteConfig.business.openingHours,
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 32.7767,
+      longitude: -96.7970,
+    },
+    serviceArea: {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: 32.7767,
+        longitude: -96.7970,
+      },
+      geoRadius: "50000",
+    },
     areaServed: siteConfig.cities.map((c) => ({
       "@type": "City",
       name: `${c.name}, TX`,
