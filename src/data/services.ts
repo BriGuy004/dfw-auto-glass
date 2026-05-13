@@ -87,7 +87,7 @@ export const services: ServiceData[] = [
     description:
       "Mobile auto glass service across Dallas-Fort Worth. We come to your home, office, or anywhere safe to park. Same-day available.",
     excerpt: "Don't drive on a damaged windshield. We come to you — home, office, parking lot, anywhere.",
-    placeholder: true,
+    placeholder: false,
   },
   {
     slug: "same-day-service",
