@@ -19,7 +19,7 @@ export const services: ServiceData[] = [
     description:
       "Windshield replacement in Dallas-Fort Worth. Same-day mobile service, ADAS calibration included, no insurance required. Free quotes with photo.",
     excerpt: "Cracked or broken windshield? We replace it same-day with mobile service across DFW.",
-    placeholder: true,
+    placeholder: false,
   },
   {
     slug: "windshield-repair",
