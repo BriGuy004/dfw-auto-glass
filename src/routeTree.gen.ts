@@ -30,9 +30,11 @@ import { Route as ServicesAdasCalibrationRouteImport } from './routes/services/a
 import { Route as LocationsRichardsonRouteImport } from './routes/locations/richardson'
 import { Route as LocationsPlanoRouteImport } from './routes/locations/plano'
 import { Route as LocationsMesquiteRouteImport } from './routes/locations/mesquite'
+import { Route as LocationsMckinneyRouteImport } from './routes/locations/mckinney'
 import { Route as LocationsLewisvilleRouteImport } from './routes/locations/lewisville'
 import { Route as LocationsIrvingRouteImport } from './routes/locations/irving'
 import { Route as LocationsGarlandRouteImport } from './routes/locations/garland'
+import { Route as LocationsFriscoRouteImport } from './routes/locations/frisco'
 import { Route as LocationsDallasRouteImport } from './routes/locations/dallas'
 import { Route as LocationsCarrolltonRouteImport } from './routes/locations/carrollton'
 import { Route as LearnWindshieldWiperIssuesAfterReplacementRouteImport } from './routes/learn/windshield-wiper-issues-after-replacement'
@@ -162,6 +164,11 @@ const LocationsMesquiteRoute = LocationsMesquiteRouteImport.update({
   path: '/locations/mesquite',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocationsMckinneyRoute = LocationsMckinneyRouteImport.update({
+  id: '/locations/mckinney',
+  path: '/locations/mckinney',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocationsLewisvilleRoute = LocationsLewisvilleRouteImport.update({
   id: '/locations/lewisville',
   path: '/locations/lewisville',
@@ -175,6 +182,11 @@ const LocationsIrvingRoute = LocationsIrvingRouteImport.update({
 const LocationsGarlandRoute = LocationsGarlandRouteImport.update({
   id: '/locations/garland',
   path: '/locations/garland',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsFriscoRoute = LocationsFriscoRouteImport.update({
+  id: '/locations/frisco',
+  path: '/locations/frisco',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LocationsDallasRoute = LocationsDallasRouteImport.update({
@@ -301,9 +313,11 @@ export interface FileRoutesByFullPath {
   '/learn/windshield-wiper-issues-after-replacement': typeof LearnWindshieldWiperIssuesAfterReplacementRoute
   '/locations/carrollton': typeof LocationsCarrolltonRoute
   '/locations/dallas': typeof LocationsDallasRoute
+  '/locations/frisco': typeof LocationsFriscoRoute
   '/locations/garland': typeof LocationsGarlandRoute
   '/locations/irving': typeof LocationsIrvingRoute
   '/locations/lewisville': typeof LocationsLewisvilleRoute
+  '/locations/mckinney': typeof LocationsMckinneyRoute
   '/locations/mesquite': typeof LocationsMesquiteRoute
   '/locations/plano': typeof LocationsPlanoRoute
   '/locations/richardson': typeof LocationsRichardsonRoute
@@ -344,9 +358,11 @@ export interface FileRoutesByTo {
   '/learn/windshield-wiper-issues-after-replacement': typeof LearnWindshieldWiperIssuesAfterReplacementRoute
   '/locations/carrollton': typeof LocationsCarrolltonRoute
   '/locations/dallas': typeof LocationsDallasRoute
+  '/locations/frisco': typeof LocationsFriscoRoute
   '/locations/garland': typeof LocationsGarlandRoute
   '/locations/irving': typeof LocationsIrvingRoute
   '/locations/lewisville': typeof LocationsLewisvilleRoute
+  '/locations/mckinney': typeof LocationsMckinneyRoute
   '/locations/mesquite': typeof LocationsMesquiteRoute
   '/locations/plano': typeof LocationsPlanoRoute
   '/locations/richardson': typeof LocationsRichardsonRoute
@@ -388,9 +404,11 @@ export interface FileRoutesById {
   '/learn/windshield-wiper-issues-after-replacement': typeof LearnWindshieldWiperIssuesAfterReplacementRoute
   '/locations/carrollton': typeof LocationsCarrolltonRoute
   '/locations/dallas': typeof LocationsDallasRoute
+  '/locations/frisco': typeof LocationsFriscoRoute
   '/locations/garland': typeof LocationsGarlandRoute
   '/locations/irving': typeof LocationsIrvingRoute
   '/locations/lewisville': typeof LocationsLewisvilleRoute
+  '/locations/mckinney': typeof LocationsMckinneyRoute
   '/locations/mesquite': typeof LocationsMesquiteRoute
   '/locations/plano': typeof LocationsPlanoRoute
   '/locations/richardson': typeof LocationsRichardsonRoute
@@ -433,9 +451,11 @@ export interface FileRouteTypes {
     | '/learn/windshield-wiper-issues-after-replacement'
     | '/locations/carrollton'
     | '/locations/dallas'
+    | '/locations/frisco'
     | '/locations/garland'
     | '/locations/irving'
     | '/locations/lewisville'
+    | '/locations/mckinney'
     | '/locations/mesquite'
     | '/locations/plano'
     | '/locations/richardson'
@@ -476,9 +496,11 @@ export interface FileRouteTypes {
     | '/learn/windshield-wiper-issues-after-replacement'
     | '/locations/carrollton'
     | '/locations/dallas'
+    | '/locations/frisco'
     | '/locations/garland'
     | '/locations/irving'
     | '/locations/lewisville'
+    | '/locations/mckinney'
     | '/locations/mesquite'
     | '/locations/plano'
     | '/locations/richardson'
@@ -519,9 +541,11 @@ export interface FileRouteTypes {
     | '/learn/windshield-wiper-issues-after-replacement'
     | '/locations/carrollton'
     | '/locations/dallas'
+    | '/locations/frisco'
     | '/locations/garland'
     | '/locations/irving'
     | '/locations/lewisville'
+    | '/locations/mckinney'
     | '/locations/mesquite'
     | '/locations/plano'
     | '/locations/richardson'
@@ -563,9 +587,11 @@ export interface RootRouteChildren {
   LearnWindshieldWiperIssuesAfterReplacementRoute: typeof LearnWindshieldWiperIssuesAfterReplacementRoute
   LocationsCarrolltonRoute: typeof LocationsCarrolltonRoute
   LocationsDallasRoute: typeof LocationsDallasRoute
+  LocationsFriscoRoute: typeof LocationsFriscoRoute
   LocationsGarlandRoute: typeof LocationsGarlandRoute
   LocationsIrvingRoute: typeof LocationsIrvingRoute
   LocationsLewisvilleRoute: typeof LocationsLewisvilleRoute
+  LocationsMckinneyRoute: typeof LocationsMckinneyRoute
   LocationsMesquiteRoute: typeof LocationsMesquiteRoute
   LocationsPlanoRoute: typeof LocationsPlanoRoute
   LocationsRichardsonRoute: typeof LocationsRichardsonRoute
@@ -733,6 +759,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocationsMesquiteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/locations/mckinney': {
+      id: '/locations/mckinney'
+      path: '/locations/mckinney'
+      fullPath: '/locations/mckinney'
+      preLoaderRoute: typeof LocationsMckinneyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/locations/lewisville': {
       id: '/locations/lewisville'
       path: '/locations/lewisville'
@@ -752,6 +785,13 @@ declare module '@tanstack/react-router' {
       path: '/locations/garland'
       fullPath: '/locations/garland'
       preLoaderRoute: typeof LocationsGarlandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/frisco': {
+      id: '/locations/frisco'
+      path: '/locations/frisco'
+      fullPath: '/locations/frisco'
+      preLoaderRoute: typeof LocationsFriscoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/locations/dallas': {
@@ -909,9 +949,11 @@ const rootRouteChildren: RootRouteChildren = {
     LearnWindshieldWiperIssuesAfterReplacementRoute,
   LocationsCarrolltonRoute: LocationsCarrolltonRoute,
   LocationsDallasRoute: LocationsDallasRoute,
+  LocationsFriscoRoute: LocationsFriscoRoute,
   LocationsGarlandRoute: LocationsGarlandRoute,
   LocationsIrvingRoute: LocationsIrvingRoute,
   LocationsLewisvilleRoute: LocationsLewisvilleRoute,
+  LocationsMckinneyRoute: LocationsMckinneyRoute,
   LocationsMesquiteRoute: LocationsMesquiteRoute,
   LocationsPlanoRoute: LocationsPlanoRoute,
   LocationsRichardsonRoute: LocationsRichardsonRoute,

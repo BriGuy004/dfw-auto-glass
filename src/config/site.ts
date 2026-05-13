@@ -21,6 +21,8 @@ export const siteConfig = {
     { slug: 'carrollton', name: 'Carrollton' },
     { slug: 'irving', name: 'Irving' },
     { slug: 'lewisville', name: 'Lewisville' },
+    { slug: 'frisco', name: 'Frisco' },
+    { slug: 'mckinney', name: 'McKinney' },
   ],
 
   // Schema.org defaults

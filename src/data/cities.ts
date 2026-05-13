@@ -81,4 +81,22 @@ export const cities: CityData[] = [
     excerpt: "Auto glass across Lewisville, Flower Mound, and Castle Hills — same-day service available.",
     placeholder: true,
   },
+  {
+    slug: "frisco",
+    name: "Frisco",
+    fullName: "Frisco, TX",
+    zipCodes: ["75033", "75034", "75035", "75036", "75068"],
+    population: "220K",
+    excerpt: "Mobile auto glass for Frisco — newer vehicles, ADAS calibration done right.",
+    placeholder: true,
+  },
+  {
+    slug: "mckinney",
+    name: "McKinney",
+    fullName: "McKinney, TX",
+    zipCodes: ["75069", "75070", "75071", "75072"],
+    population: "220K",
+    excerpt: "Auto glass service across McKinney — historic downtown to new developments.",
+    placeholder: true,
+  },
 ];
