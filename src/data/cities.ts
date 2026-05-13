@@ -88,7 +88,7 @@ export const cities: CityData[] = [
     zipCodes: ["75033", "75034", "75035", "75036", "75068"],
     population: "220K",
     excerpt: "Mobile auto glass for Frisco — newer vehicles, ADAS calibration done right.",
-    placeholder: true,
+    placeholder: false,
   },
   {
     slug: "mckinney",
