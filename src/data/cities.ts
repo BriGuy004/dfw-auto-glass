@@ -52,7 +52,7 @@ export const cities: CityData[] = [
     zipCodes: ["75080", "75081", "75082", "75083"],
     population: "120K",
     excerpt: "Mobile auto glass across Richardson — Telecom Corridor, all UTD-area neighborhoods.",
-    placeholder: true,
+    placeholder: false,
   },
   {
     slug: "carrollton",
