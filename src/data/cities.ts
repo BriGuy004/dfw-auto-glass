@@ -97,6 +97,6 @@ export const cities: CityData[] = [
     zipCodes: ["75069", "75070", "75071", "75072"],
     population: "220K",
     excerpt: "Auto glass service across McKinney — historic downtown to new developments.",
-    placeholder: true,
+    placeholder: false,
   },
 ];
