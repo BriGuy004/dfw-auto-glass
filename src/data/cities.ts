@@ -70,7 +70,7 @@ export const cities: CityData[] = [
     zipCodes: ["75038", "75039", "75060", "75061", "75062", "75063"],
     population: "255K",
     excerpt: "Mobile auto glass for Irving and Las Colinas — DFW Airport area, corporate campuses.",
-    placeholder: true,
+    placeholder: false,
   },
   {
     slug: "lewisville",
