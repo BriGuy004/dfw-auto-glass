@@ -42,7 +42,7 @@ export const services: ServiceData[] = [
     description:
       "Broken side window or door glass in Dallas? Same-day mobile replacement service across DFW. Free quotes.",
     excerpt: "Broken door glass or quarter window? We replace side glass same-day at your location.",
-    placeholder: true,
+    placeholder: false,
   },
   {
     slug: "back-window-replacement",
