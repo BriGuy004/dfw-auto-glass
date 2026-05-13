@@ -16,7 +16,7 @@ export const cities: CityData[] = [
     zipCodes: ["75201", "75202", "75204", "75205", "75206", "75214", "75218", "75230", "75231", "75240", "75243"],
     population: "1.3M",
     excerpt: "Mobile auto glass service across all Dallas neighborhoods — Uptown, Lakewood, Oak Cliff, North Dallas.",
-    placeholder: true,
+    placeholder: false,
   },
   {
     slug: "plano",
