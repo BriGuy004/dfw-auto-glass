@@ -25,7 +25,7 @@ export const cities: CityData[] = [
     zipCodes: ["75023", "75024", "75025", "75026", "75074", "75075", "75093", "75094"],
     population: "290K",
     excerpt: "Auto glass service across Plano — Willow Bend, Russwood Acres, Legacy area, all major subdivisions.",
-    placeholder: true,
+    placeholder: false,
   },
   {
     slug: "garland",
