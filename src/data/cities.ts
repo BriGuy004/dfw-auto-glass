@@ -34,7 +34,7 @@ export const cities: CityData[] = [
     zipCodes: ["75040", "75041", "75042", "75043", "75044", "75048"],
     population: "245K",
     excerpt: "Mobile auto glass across Garland and Rowlett — same-day service, no insurance required.",
-    placeholder: true,
+    placeholder: false,
   },
   {
     slug: "mesquite",
