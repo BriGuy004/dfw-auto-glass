@@ -31,7 +31,7 @@ export const services: ServiceData[] = [
       "Fast windshield chip and crack repair across Dallas-Fort Worth. Mobile service, often $0 with insurance, prevents full replacement.",
     excerpt:
       "Small chips and cracks repaired in 30 minutes. Often free with insurance — Texas waives the deductible on chip repair.",
-    placeholder: true,
+    placeholder: false,
   },
   {
     slug: "side-window-replacement",
