@@ -159,7 +159,7 @@ export const Route = createFileRoute("/")({
   head: () =>
     buildSeo({
       description:
-        "Cracked windshield in Dallas? Same-day mobile windshield replacement and repair across DFW. ADAS calibration, no insurance required. Free quotes — call or text photos.",
+        "Mobile auto glass service across DFW: Dallas, Plano, Frisco, Garland, Irving. Windshield replacement, repair, ADAS recalibration. Call or text (214) 555-0100 for a free phone consultation.",
       canonical: "/",
       schema: [buildFAQPageSchema({ faqs: FAQS })],
     }),

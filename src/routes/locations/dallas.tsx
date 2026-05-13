@@ -12,7 +12,7 @@ export const Route = createFileRoute("/locations/dallas")({
     buildSeo({
       title: "Auto Glass Dallas, TX | Windshield Replacement",
       description:
-        "Auto glass in Dallas, TX. Windshield replacement, repair, mobile service. Same-day quotes. No insurance required.",
+        "Mobile auto glass service in Dallas, TX — Uptown, Lakewood, Oak Cliff, North Dallas. Windshield replacement and repair at your home or office. Call or text (214) 555-0100.",
       canonical: "/locations/dallas",
       noindex: ENTRY.placeholder ?? false,
       schema: [

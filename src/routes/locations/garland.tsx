@@ -12,7 +12,7 @@ export const Route = createFileRoute("/locations/garland")({
     buildSeo({
       title: "Auto Glass Garland, TX | Windshield Replacement",
       description:
-        "Auto glass in Garland, TX. Windshield replacement, repair, mobile service. Same-day quotes. No insurance required.",
+        "Mobile auto glass service in Garland, TX — Firewheel, Lake Ray Hubbard area, I-30 corridor. Windshield replacement and repair at your home or office. Call or text (214) 555-0100.",
       canonical: "/locations/garland",
       noindex: ENTRY.placeholder ?? false,
       schema: [

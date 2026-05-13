@@ -12,7 +12,7 @@ export const Route = createFileRoute("/locations/plano")({
     buildSeo({
       title: "Auto Glass Plano, TX | Windshield Replacement",
       description:
-        "Auto glass in Plano, TX. Windshield replacement, repair, mobile service. Same-day quotes. No insurance required.",
+        "Mobile auto glass service in Plano, TX — Legacy West, Willow Bend, West Plano, Russwood Acres. Windshield replacement and repair at your home or office. Call or text (214) 555-0100.",
       canonical: "/locations/plano",
       noindex: ENTRY.placeholder ?? false,
       schema: [

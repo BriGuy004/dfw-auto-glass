@@ -12,7 +12,7 @@ export const Route = createFileRoute("/locations/frisco")({
     buildSeo({
       title: "Auto Glass Frisco, TX | Windshield Replacement",
       description:
-        "Auto glass in Frisco, TX. Windshield replacement, repair, mobile service. Same-day quotes. No insurance required.",
+        "Mobile auto glass service in Frisco, TX — Star District, Stonebriar, Phillips Creek Ranch, Hollyhock. Windshield replacement and repair at your home or office. Call or text (214) 555-0100.",
       canonical: "/locations/frisco",
       noindex: ENTRY.placeholder ?? false,
       schema: [

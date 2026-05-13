@@ -1,24 +1,58 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
-import { buildServiceSchema, buildBreadcrumbListSchema } from "@/lib/schema";
+import {
+  buildServiceSchema,
+  buildBreadcrumbListSchema,
+  buildFAQPageSchema,
+} from "@/lib/schema";
 import { services } from "@/data/services";
 
 const ENTRY = services.find((s) => s.slug === "windshield-repair")!;
+
+const SERVICE_DESCRIPTION =
+  "Windshield chip and crack repair across DFW — Dallas, Plano, Frisco, Garland, Irving. Mobile service, insurance often helps depending on policy. Call or text (214) 555-0100.";
+
+const FAQS = [
+  {
+    question: "How long does a windshield chip repair take?",
+    answer:
+      "Most chip repairs take about 30 minutes on-site. The technician cleans the chip, injects resin, cures it under UV light, and inspects the result. You can usually drive the vehicle right away after the work is complete.",
+  },
+  {
+    question: "When is a chip repairable versus needing full replacement?",
+    answer:
+      "Chips smaller than a quarter and short cracks — generally under about six inches — are often repairable. Damage that is larger, in the driver's direct line of sight, or has spread into multiple cracks usually needs full windshield replacement. Send a photo by text and we can usually tell you which situation you are in.",
+  },
+  {
+    question: "Does insurance cover windshield chip repair?",
+    answer:
+      "In many cases yes. Texas comprehensive auto policies often cover chip repair with little or no out-of-pocket cost, because repair is much cheaper than full replacement. Coverage depends on your policy — confirm specifics with your insurer before assuming.",
+  },
+  {
+    question: "Will I be able to see the chip after it is repaired?",
+    answer:
+      "A repaired chip is usually still faintly visible up close, but the structural damage is sealed and the spread is stopped. The goal of repair is to keep a small problem from becoming a full replacement, not to make the glass look brand new.",
+  },
+  {
+    question: "Can a small chip really turn into a full crack?",
+    answer:
+      "Yes — Texas heat is hard on damaged glass. A chip can spread within hours after a temperature swing, a bump in the road, or a hot day sitting in the sun. The earlier the repair, the more likely the damage stops at repair and does not become a full replacement.",
+  },
+];
 
 export const Route = createFileRoute("/services/windshield-repair")({
   component: ServicePage,
   head: () =>
     buildSeo({
       title: "Windshield Repair Dallas, TX | Chip & Crack Repair",
-      description:
-        "Fast windshield chip and crack repair across Dallas-Fort Worth. Mobile service, often $0 with insurance, prevents full replacement.",
+      description: SERVICE_DESCRIPTION,
       canonical: "/services/windshield-repair",
       noindex: ENTRY.placeholder ?? false,
       schema: [
         buildServiceSchema({
           serviceName: "Windshield Repair",
-          serviceDescription: "Fast windshield chip and crack repair across Dallas-Fort Worth. Mobile service, often $0 with insurance, prevents full replacement.",
+          serviceDescription: SERVICE_DESCRIPTION,
           areaServed: siteConfig.cities.map((c) => `${c.name}, TX`),
         }),
         buildBreadcrumbListSchema({
@@ -28,6 +62,7 @@ export const Route = createFileRoute("/services/windshield-repair")({
             { name: "Windshield Repair", url: "/services/windshield-repair", position: 3 },
           ],
         }),
+        buildFAQPageSchema({ faqs: FAQS }),
       ],
     }),
 });

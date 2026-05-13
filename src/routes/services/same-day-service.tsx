@@ -1,24 +1,58 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
-import { buildServiceSchema, buildBreadcrumbListSchema } from "@/lib/schema";
+import {
+  buildServiceSchema,
+  buildBreadcrumbListSchema,
+  buildFAQPageSchema,
+} from "@/lib/schema";
 import { services } from "@/data/services";
 
 const ENTRY = services.find((s) => s.slug === "same-day-service")!;
+
+const SERVICE_DESCRIPTION =
+  "Same-day windshield replacement and repair in Dallas. Emergency auto glass service when you need it now. Mobile dispatch across DFW.";
+
+const FAQS = [
+  {
+    question: "Can I really get same-day windshield service in Dallas?",
+    answer:
+      "In many cases, yes — for common vehicles, common glass, and a reasonable booking time. Specialty vehicles, ADAS-heavy newer cars, and less common glass sometimes require ordering parts, which adds a day or two. Call or text and we will tell you whether your specific vehicle is a same-day candidate.",
+  },
+  {
+    question: "What time do I need to call to get same-day service?",
+    answer:
+      "Earlier in the day gives the most flexibility. Calls before mid-morning usually get same-day. By mid-afternoon, same-day depends on the part, the location, and how the schedule is sitting. After-hours requests get routed for the next morning.",
+  },
+  {
+    question: "Does same-day cost more?",
+    answer:
+      "For common jobs, no — same-day mobile service is the standard, not an upcharge. Specialty vehicles and after-hours emergency work can have different pricing. The quote is given up front by phone so there is no surprise.",
+  },
+  {
+    question: "Do I need to be there the entire time?",
+    answer:
+      "Not necessarily. Once the vehicle is set up and the technician confirms the spot is right, many jobs continue while you are inside. You will need to be available at the end for hand-off, payment, and aftercare guidance.",
+  },
+  {
+    question: "What counts as an emergency?",
+    answer:
+      "A windshield cracked all the way across the driver's view, a side window broken in a break-in, or rear glass shattered — anything that affects visibility, security, or the ability to drive safely. Jobs with safety or weather urgency are prioritized over routine scheduling.",
+  },
+];
 
 export const Route = createFileRoute("/services/same-day-service")({
   component: ServicePage,
   head: () =>
     buildSeo({
       title: "Same-Day Auto Glass Dallas, TX | Emergency Service",
-      description:
-        "Same-day windshield replacement and repair in Dallas. Emergency auto glass service when you need it now. Mobile dispatch across DFW.",
+      description: SERVICE_DESCRIPTION,
       canonical: "/services/same-day-service",
       noindex: ENTRY.placeholder ?? false,
       schema: [
         buildServiceSchema({
           serviceName: "Same-Day Service",
-          serviceDescription: "Same-day windshield replacement and repair in Dallas. Emergency auto glass service when you need it now. Mobile dispatch across DFW.",
+          serviceDescription: SERVICE_DESCRIPTION,
           areaServed: siteConfig.cities.map((c) => `${c.name}, TX`),
         }),
         buildBreadcrumbListSchema({
@@ -28,6 +62,7 @@ export const Route = createFileRoute("/services/same-day-service")({
             { name: "Same-Day Service", url: "/services/same-day-service", position: 3 },
           ],
         }),
+        buildFAQPageSchema({ faqs: FAQS }),
       ],
     }),
 });
