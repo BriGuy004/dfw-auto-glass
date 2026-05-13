@@ -43,7 +43,7 @@ export const cities: CityData[] = [
     zipCodes: ["75149", "75150", "75180", "75181", "75182"],
     population: "150K",
     excerpt: "Auto glass service for Mesquite drivers — windshield repair, replacement, side and rear glass.",
-    placeholder: true,
+    placeholder: false,
   },
   {
     slug: "richardson",
