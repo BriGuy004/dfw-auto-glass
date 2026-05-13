@@ -76,7 +76,7 @@ export const services: ServiceData[] = [
       "ADAS calibration after windshield replacement in Dallas. Required for lane assist, automatic braking, adaptive cruise. Done right or your safety systems fail.",
     excerpt:
       "Lane assist, auto braking, adaptive cruise — these need recalibration after windshield replacement on most 2018+ vehicles.",
-    placeholder: true,
+    placeholder: false,
   },
   {
     slug: "mobile-auto-glass",
