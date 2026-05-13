@@ -61,7 +61,7 @@ export const cities: CityData[] = [
     zipCodes: ["75006", "75007", "75010"],
     population: "135K",
     excerpt: "Same-day windshield service in Carrollton, Farmers Branch, and Addison area.",
-    placeholder: true,
+    placeholder: false,
   },
   {
     slug: "irving",
