@@ -79,7 +79,7 @@ export const cities: CityData[] = [
     zipCodes: ["75056", "75057", "75067", "75077"],
     population: "115K",
     excerpt: "Auto glass across Lewisville, Flower Mound, and Castle Hills — same-day service available.",
-    placeholder: true,
+    placeholder: false,
   },
   {
     slug: "frisco",
