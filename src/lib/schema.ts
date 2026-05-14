@@ -10,6 +10,7 @@ export function buildLocalBusinessSchema() {
     "@id": businessId,
     name: siteConfig.brandName,
     url: siteConfig.domain,
+    image: `${siteConfig.domain}/images/hero-technician.png`,
     telephone: siteConfig.phone.tel,
     priceRange: siteConfig.business.priceRange,
     openingHours: siteConfig.business.openingHours,

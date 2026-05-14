@@ -235,6 +235,21 @@ function Index() {
         </div>
       </section>
 
+      {/* Hero photo — trust visual between hero CTA and services */}
+      <section className="bg-background pb-10 md:pb-14">
+        <div className="mx-auto max-w-6xl px-4">
+          <img
+            src="/images/hero-technician.png"
+            alt="Auto glass technician performing windshield repair in Dallas"
+            width={1200}
+            height={400}
+            loading="lazy"
+            decoding="async"
+            className="aspect-[3/1] w-full rounded-2xl object-cover shadow-md md:aspect-[16/5]"
+          />
+        </div>
+      </section>
+
       {/* Services */}
       <section id="services" className="bg-background py-16">
         <div className="mx-auto max-w-6xl px-4">
