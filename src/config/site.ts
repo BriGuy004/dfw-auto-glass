@@ -1,11 +1,17 @@
 export const siteConfig = {
-  domain: 'https://www.autoglassprosdallas.com',
-  brandName: 'Auto Glass Pros Dallas',
-  shortName: 'AutoGlassProsDallas',
+  domain: 'https://www.windshieldprosdallas.com',
+  brandName: 'Dallas Windshield and Auto Glass Pros',
+  shortName: 'Dallas Windshield and Auto Glass Pros',
+  brandAbbr: 'DWAG Pros',
   tagline: 'Same-day windshield replacement & repair across Dallas-Fort Worth',
   description: 'Cracked windshield in Dallas? Get same-day windshield replacement and repair across DFW. Mobile service, ADAS calibration, no insurance required. Free quotes.',
 
-  // Phone (placeholder until CallRail number is provisioned)
+  // Formspree
+  formspree: {
+    formId: 'xvzlnjpd',
+  },
+
+  // Phone (placeholder until Quo verification completes)
   phone: {
     display: '(214) 555-0100',
     tel: '+12145550100',
@@ -27,7 +33,7 @@ export const siteConfig = {
 
   // Schema.org defaults
   business: {
-    type: 'AutoBodyShop',
+    type: 'AutoRepair',
     priceRange: '$$',
     openingHours: 'Mo-Sa 07:00-21:00, Su 09:00-19:00',
   },

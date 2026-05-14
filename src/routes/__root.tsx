@@ -13,6 +13,7 @@ import { buildSeo } from "@/lib/seo";
 import { buildLocalBusinessSchema } from "@/lib/schema";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { StickyMobileCallBar } from "@/components/StickyMobileCallBar";
 
 function NotFoundComponent() {
   return (
@@ -97,11 +98,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <div className="flex min-h-screen flex-col">
+        <div className="flex min-h-screen flex-col pb-[72px] md:pb-0">
           <SiteHeader />
           <div className="flex-1">{children}</div>
           <SiteFooter />
         </div>
+        <StickyMobileCallBar />
         <Scripts />
       </body>
     </html>

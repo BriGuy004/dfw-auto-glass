@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { QuoteForm } from "@/components/QuoteForm";
 import {
   buildBreadcrumbListSchema,
   buildFAQPageSchema,
@@ -122,7 +123,7 @@ const FAQS = [
   {
     question: "Are auto glass operators in Carrollton licensed and insured?",
     answer:
-      "The Carrollton auto glass operators we connect drivers with carry the standard insurance and credentials expected for auto glass work in Texas. Auto Glass Pros Dallas is a lead-routing service; the installation itself is performed by the local operator we connect you with. Operator details are confirmed before dispatch.",
+      "The Carrollton auto glass operators we connect drivers with carry the standard insurance and credentials expected for auto glass work in Texas. Dallas Windshield and Auto Glass Pros is a lead-routing service; the installation itself is performed by the local operator we connect you with. Operator details are confirmed before dispatch.",
   },
   {
     question: "What if I drive a Tesla, Lexus, or other vehicle with ADAS?",
@@ -160,7 +161,8 @@ function LocationPage() {
     <main className="min-h-screen bg-background text-foreground">
       {/* Hero — phone-first conversion */}
       <section className="bg-background">
-        <div className="mx-auto max-w-5xl px-4 py-16 md:py-20">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-[1.1fr_0.9fr] md:gap-12 md:py-16">
+          <div className="flex flex-col justify-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand">
             Serving Carrollton, TX & DFW
           </p>
@@ -183,6 +185,10 @@ function LocationPage() {
             >
               Text a Photo of the Damage
             </a>
+          </div>
+        </div>
+          <div id="quote" className="scroll-mt-20">
+            <QuoteForm source="city:carrollton" />
           </div>
         </div>
       </section>

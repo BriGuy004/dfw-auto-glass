@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Update this URL when cloning template to a new domain
-Sitemap: https://www.autoglassprosdallas.com/sitemap.xml
+Sitemap: https://www.windshieldprosdallas.com/sitemap.xml
 
 # Block utility pages from being indexed (they have noindex meta already, but defense in depth)
 Disallow: /privacy

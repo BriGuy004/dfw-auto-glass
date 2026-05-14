@@ -6,7 +6,7 @@ export const Route = createFileRoute("/privacy")({
   head: () =>
     buildSeo({
       title: "Privacy Policy",
-      description: "Privacy policy for Auto Glass Pros Dallas.",
+      description: "Privacy policy for Dallas Windshield and Auto Glass Pros.",
       canonical: "/privacy",
       noindex: true,
     }),

@@ -8,7 +8,7 @@ export const Route = createFileRoute("/about")({
     buildSeo({
       title: "About",
       description:
-        "About Auto Glass Pros Dallas — local DFW auto glass team focused on same-day mobile service, ADAS calibration, and transparent pricing.",
+        "About Dallas Windshield and Auto Glass Pros — local DFW auto glass team focused on same-day mobile service, ADAS calibration, and transparent pricing.",
       canonical: "/about",
     }),
 });

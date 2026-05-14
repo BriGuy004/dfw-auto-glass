@@ -81,7 +81,7 @@ export function SiteFooter() {
             © {year} {siteConfig.brandName}. All rights reserved.
           </p>
           <p className="mt-3 text-xs text-muted-foreground">
-            Auto Glass Pros Dallas shares information with local, licensed, and insured auto glass vendors who will reach out and contact you the consumer with the information provided here.
+            Dallas Windshield and Auto Glass Pros shares information with local, licensed, and insured auto glass vendors who will reach out and contact you the consumer with the information provided here.
           </p>
         </div>
       </div>

@@ -1,5 +1,13 @@
 import { siteConfig } from "@/config/site";
 
+// Brand suffix is 36 chars; we prefer "{title} | {brand}" but fall back to
+// "{title} | {brandAbbr}" if the full version pushes title past ~65 chars.
+function buildTitle(title: string): string {
+  const full = `${title} | ${siteConfig.shortName}`;
+  if (full.length <= 65) return full;
+  return `${title} | ${siteConfig.brandAbbr}`;
+}
+
 interface SeoProps {
   title?: string;
   description?: string;
@@ -18,7 +26,7 @@ export function buildSeo({
   schema,
 }: SeoProps = {}) {
   const fullTitle = title
-    ? `${title} | ${siteConfig.shortName}`
+    ? buildTitle(title)
     : `${siteConfig.brandName} | ${siteConfig.tagline}`;
 
   const desc = description ?? siteConfig.description;

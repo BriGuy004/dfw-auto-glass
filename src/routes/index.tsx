@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroImg from "@/assets/hero-windshield.jpg";
+import { Phone } from "lucide-react";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { services } from "@/data/services";
 import { cities } from "@/data/cities";
 import { buildFAQPageSchema } from "@/lib/schema";
+import { QuoteForm } from "@/components/QuoteForm";
 import {
   Accordion,
   AccordionContent,
@@ -169,67 +170,67 @@ function Index() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
+      <section className="relative overflow-hidden bg-background">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-10 md:grid-cols-[1.1fr_0.9fr] md:gap-12 md:py-20">
           <div className="flex flex-col justify-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand">
-              Serving the DFW Metroplex
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand md:text-sm">
+              Serving Dallas, TX & DFW
             </p>
-            <h1 className="text-4xl font-extrabold leading-tight md:text-5xl">
-              Dallas Auto Glass Repair & Windshield Replacement Specialists
+            <h1 className="text-3xl font-extrabold leading-tight md:text-5xl">
+              Windshield Repair &amp; Replacement in Dallas, TX
             </h1>
-            <p className="mt-5 text-lg text-muted-foreground">
-              Same-day mobile windshield replacement and repair across Dallas-Fort Worth. We come to your home, office, or workplace — no shop drop-off, no wasted day, and no insurance claim required.
+            <p className="mt-4 text-base text-muted-foreground md:mt-5 md:text-lg">
+              Same-day mobile service across Dallas-Fort Worth. We connect you
+              with vetted local Dallas auto glass operators who come to your
+              home, office, or driveway. Free phone consultation — no obligation.
             </p>
-            <div className="mt-7 flex flex-wrap gap-3">
+
+            {/* MOBILE: massive phone CTA (80px) above form */}
+            <a
+              href={TEL}
+              className="mt-6 inline-flex items-center justify-center gap-3 rounded-lg bg-primary px-6 text-primary-foreground shadow-lg hover:bg-primary/90 md:hidden"
+              style={{ minHeight: "80px" }}
+              aria-label={`Call ${PHONE}`}
+            >
+              <Phone className="h-6 w-6" />
+              <span className="text-xl font-extrabold tracking-tight">
+                Call {PHONE}
+              </span>
+            </a>
+
+            {/* DESKTOP: huge phone CTA (~64px) + secondary text-photo button */}
+            <div className="mt-7 hidden flex-wrap items-center gap-3 md:flex">
               <a
                 href={TEL}
-                className="rounded-md bg-brand px-6 py-3 font-semibold text-brand-foreground shadow hover:opacity-90"
+                className="inline-flex items-center justify-center gap-3 rounded-lg bg-primary px-7 text-primary-foreground shadow-lg transition hover:bg-primary/90"
+                style={{ minHeight: "64px" }}
+                aria-label={`Call ${PHONE}`}
               >
-                Call {PHONE}
+                <Phone className="h-5 w-5" />
+                <span className="text-xl font-extrabold tracking-tight">
+                  Call {PHONE}
+                </span>
               </a>
               <a
-                href="#quote"
-                className="rounded-md border border-border bg-background px-6 py-3 font-semibold hover:bg-accent"
+                href={`sms:${siteConfig.phone.tel}`}
+                className="rounded-lg border border-border bg-background px-5 py-3 text-base font-semibold hover:bg-accent"
               >
-                Get a Free Quote
+                Text a Photo of the Damage
               </a>
             </div>
-          </div>
-          <div className="relative">
-            <img
-              src={heroImg}
-              alt="Auto glass technician repairing a cracked windshield in the DFW Metroplex"
-              width={1280}
-              height={896}
-              className="aspect-[4/3] w-full rounded-2xl object-cover shadow-xl"
-            />
-          </div>
-        </div>
-      </section>
 
-      {/* Quote form */}
-      <section id="quote" className="bg-secondary/40 py-14">
-        <div className="mx-auto max-w-3xl px-4">
-          <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-            <h2 className="text-2xl font-bold">Free Instant Quote</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Tell us about your vehicle and we'll text or email you a price. No obligation.
-            </p>
-            <form className="mt-6 grid gap-4 md:grid-cols-2">
-              <input className="rounded-md border border-input bg-background px-3 py-2" placeholder="First name" />
-              <input className="rounded-md border border-input bg-background px-3 py-2" placeholder="Last name" />
-              <input className="rounded-md border border-input bg-background px-3 py-2" placeholder="Phone number" />
-              <input className="rounded-md border border-input bg-background px-3 py-2" placeholder="Email" />
-              <input className="md:col-span-2 rounded-md border border-input bg-background px-3 py-2" placeholder="Vehicle (year, make, model)" />
-              <textarea className="md:col-span-2 rounded-md border border-input bg-background px-3 py-2" rows={4} placeholder="Describe the damage" />
-              <button
-                type="button"
-                className="md:col-span-2 rounded-md bg-brand px-6 py-3 font-semibold text-brand-foreground hover:opacity-90"
-              >
-                Submit
-              </button>
-            </form>
+            {/* MOBILE: text-photo button stacked below phone */}
+            <a
+              href={`sms:${siteConfig.phone.tel}`}
+              className="mt-3 inline-flex items-center justify-center rounded-lg border border-border bg-background px-5 py-3 text-base font-semibold hover:bg-accent md:hidden"
+            >
+              Text a Photo of the Damage
+            </a>
+          </div>
+
+          {/* RIGHT: Quote form (desktop right column / mobile below) */}
+          <div id="quote" className="mt-2 scroll-mt-20 md:mt-0">
+            <QuoteForm source="homepage" />
           </div>
         </div>
       </section>

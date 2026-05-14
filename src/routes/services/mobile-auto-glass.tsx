@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
+import { QuoteForm } from "@/components/QuoteForm";
 import {
   buildServiceSchema,
   buildBreadcrumbListSchema,
@@ -88,7 +89,8 @@ function ServicePage() {
     <main className="min-h-screen bg-background text-foreground">
       {/* Hero */}
       <section className="bg-background">
-        <div className="mx-auto max-w-5xl px-4 py-16 md:py-20">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-[1.1fr_0.9fr] md:gap-12 md:py-16">
+          <div className="flex flex-col justify-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand">
             DFW Mobile Auto Glass
           </p>
@@ -111,6 +113,10 @@ function ServicePage() {
             >
               Text a Photo of the Damage
             </a>
+          </div>
+        </div>
+          <div id="quote" className="scroll-mt-20">
+            <QuoteForm source="service:mobile-auto-glass" />
           </div>
         </div>
       </section>
