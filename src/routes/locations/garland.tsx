@@ -163,12 +163,12 @@ function LocationPage() {
     <main className="min-h-screen bg-background text-foreground">
       {/* Hero — phone-first conversion */}
       <section className="bg-background">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-[1.1fr_0.9fr] md:gap-12 md:py-16">
-          <div className="flex flex-col justify-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand">
+        <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-10 md:grid-cols-[1.1fr_0.9fr] md:gap-12 md:py-14">
+          <div className="flex flex-col">
+          <p className="text-xs font-semibold uppercase tracking-widest text-brand md:text-sm">
             Serving Garland, TX & DFW
           </p>
-          <h1 className="text-4xl font-extrabold leading-tight md:text-5xl">
+          <h1 className="mt-4 text-4xl font-extrabold leading-tight md:text-5xl">
             Auto Glass Garland, TX — Same-Day Windshield Repair & Replacement
           </h1>
           <p className="mt-5 text-lg text-muted-foreground">

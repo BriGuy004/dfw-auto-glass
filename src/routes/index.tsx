@@ -171,12 +171,12 @@ function Index() {
     <div className="bg-background text-foreground">
       {/* Hero */}
       <section className="relative overflow-hidden bg-background">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-10 md:grid-cols-[1.1fr_0.9fr] md:gap-12 md:py-20">
-          <div className="flex flex-col justify-center">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand md:text-sm">
+        <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-10 md:grid-cols-[1.1fr_0.9fr] md:gap-12 md:py-14">
+          <div className="flex flex-col">
+            <p className="text-xs font-semibold uppercase tracking-widest text-brand md:text-sm">
               Serving Dallas, TX & DFW
             </p>
-            <h1 className="text-3xl font-extrabold leading-tight md:text-5xl">
+            <h1 className="mt-4 text-3xl font-extrabold leading-tight md:text-5xl">
               Windshield Repair &amp; Replacement in Dallas, TX
             </h1>
             <p className="mt-4 text-base text-muted-foreground md:mt-5 md:text-lg">

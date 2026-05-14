@@ -28,8 +28,8 @@ function ContactPage() {
   return (
     <main className="bg-background">
       <section className="container mx-auto max-w-5xl px-4 py-12 md:py-16">
-        <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:gap-12">
-          <div className="flex flex-col justify-center">
+        <div className="grid items-start gap-10 md:grid-cols-[1.1fr_0.9fr] md:gap-12">
+          <div className="flex flex-col">
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand md:text-sm">
               Contact Us
             </p>

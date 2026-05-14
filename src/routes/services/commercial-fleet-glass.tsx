@@ -1,3 +1,4 @@
+import { Phone } from "lucide-react";
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
@@ -7,6 +8,7 @@ import {
   buildFAQPageSchema,
 } from "@/lib/schema";
 import { services } from "@/data/services";
+import { QuoteForm } from "@/components/QuoteForm";
 
 const ENTRY = services.find((s) => s.slug === "commercial-fleet-glass")!;
 
@@ -69,23 +71,48 @@ export const Route = createFileRoute("/services/commercial-fleet-glass")({
 
 function ServicePage() {
   return (
-    <main className="min-h-screen bg-background">
-      <section className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold tracking-tight">Dallas Commercial Fleet Auto Glass</h1>
-        <p className="mt-4 text-lg text-muted-foreground">
-          Running a fleet? We handle scheduled and emergency glass work with volume pricing and billing accounts.
-        </p>
-        <div className="mt-8">
-          <a
-            href={`tel:${siteConfig.phone.tel}`}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-semibold text-primary-foreground shadow hover:bg-primary/90"
-          >
-            Call {siteConfig.phone.display}
-          </a>
+    <main className="min-h-screen bg-background text-foreground">
+      {/* Hero */}
+      <section className="bg-background">
+        <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-10 md:grid-cols-[1.1fr_0.9fr] md:gap-12 md:py-14">
+          <div className="flex flex-col">
+            <p className="text-xs font-semibold uppercase tracking-widest text-brand md:text-sm">
+              DFW Fleet Auto Glass
+            </p>
+            <h1 className="mt-4 text-3xl font-extrabold leading-tight md:text-5xl">
+              Commercial Fleet Auto Glass in Dallas, TX
+            </h1>
+            <p className="mt-5 text-base text-muted-foreground md:text-lg">
+              Running a fleet? Call {siteConfig.phone.display} and we will connect you with a vetted DFW auto glass operator who supports billing accounts, scheduled work, and fast turnaround for vehicles that cannot sit.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a
+                href={`tel:${siteConfig.phone.tel}`}
+                className="inline-flex items-center justify-center gap-3 rounded-lg bg-primary px-6 text-primary-foreground shadow-lg hover:bg-primary/90"
+                style={{ minHeight: "64px" }}
+                aria-label={`Call ${siteConfig.phone.display}`}
+              >
+                <Phone className="h-5 w-5" />
+                <span className="text-xl font-extrabold tracking-tight">
+                  Call {siteConfig.phone.display}
+                </span>
+              </a>
+              <a
+                href={`sms:${siteConfig.phone.tel}`}
+                className="rounded-lg border border-border bg-background px-5 py-3 text-base font-semibold hover:bg-accent"
+              >
+                Text a Photo of the Damage
+              </a>
+            </div>
+            <p className="mt-6 text-sm text-muted-foreground">
+              Full content for this page coming soon. Call now for an immediate free quote.
+            </p>
+          </div>
+
+          <div id="quote" className="scroll-mt-20">
+            <QuoteForm source="service:commercial-fleet-glass" />
+          </div>
         </div>
-        <p className="mt-12 text-sm text-muted-foreground">
-          Full content for this page coming soon. Call now for an immediate free quote.
-        </p>
       </section>
     </main>
   );

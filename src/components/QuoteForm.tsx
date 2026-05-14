@@ -3,6 +3,7 @@ import { Phone } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { FreeInstantQuoteBanner } from "@/components/FreeInstantQuoteBanner";
 
 interface QuoteFormProps {
   source: string;
@@ -43,15 +44,13 @@ export function QuoteForm({ source, compact = false }: QuoteFormProps) {
         compact ? "p-5" : "p-6 md:p-8",
       )}
     >
-      <h3 className={cn("font-bold", compact ? "text-lg" : "text-2xl")}>
-        Get a Free Quote
-      </h3>
-      <p className="mt-1 text-sm text-muted-foreground">
-        Tell us about your vehicle and the damage. A local Dallas auto glass
-        operator will text you within 5 minutes.
+      <FreeInstantQuoteBanner className="mx-auto mb-5 block w-full max-w-sm" />
+
+      <p className="text-xs italic text-muted-foreground">
+        <span className="text-red-500">*</span> indicates required
       </p>
 
-      <form onSubmit={handleSubmit} className="mt-5 grid gap-3">
+      <form onSubmit={handleSubmit} className="mt-3 grid gap-3">
         <input type="hidden" name="source" value={source} />
         <input
           type="hidden"
@@ -70,7 +69,9 @@ export function QuoteForm({ source, compact = false }: QuoteFormProps) {
 
         <div className="grid gap-3 sm:grid-cols-2">
           <Field>
-            <Label htmlFor={`firstName-${source}`}>First name</Label>
+            <Label htmlFor={`firstName-${source}`} required>
+              First name
+            </Label>
             <input
               id={`firstName-${source}`}
               name="firstName"
@@ -87,7 +88,6 @@ export function QuoteForm({ source, compact = false }: QuoteFormProps) {
               id={`lastName-${source}`}
               name="lastName"
               type="text"
-              required
               autoComplete="family-name"
               className={inputClass}
             />
@@ -96,7 +96,9 @@ export function QuoteForm({ source, compact = false }: QuoteFormProps) {
         </div>
 
         <Field>
-          <Label htmlFor={`phone-${source}`}>Phone</Label>
+          <Label htmlFor={`phone-${source}`} required>
+            Phone
+          </Label>
           <input
             id={`phone-${source}`}
             name="phone"
@@ -110,25 +112,32 @@ export function QuoteForm({ source, compact = false }: QuoteFormProps) {
         </Field>
 
         <Field>
-          <Label htmlFor={`vehicle-${source}`}>Vehicle</Label>
+          <Label htmlFor={`vehicle-${source}`} required>
+            Vehicle
+          </Label>
           <input
             id={`vehicle-${source}`}
             name="vehicle"
             type="text"
-            placeholder="Year, Make, Model"
+            required
+            placeholder="Year, Make, Model (e.g. 2018 Honda Civic)"
             className={inputClass}
           />
           <ValidationError prefix="Vehicle" field="vehicle" errors={state.errors} className="text-xs text-destructive" />
         </Field>
 
         <Field>
-          <Label htmlFor={`zip-${source}`}>ZIP code</Label>
+          <Label htmlFor={`zip-${source}`} required>
+            ZIP code
+          </Label>
           <input
             id={`zip-${source}`}
             name="zip"
             type="text"
+            required
             inputMode="numeric"
             pattern="[0-9]{5}"
+            maxLength={5}
             placeholder="75201"
             autoComplete="postal-code"
             className={inputClass}
@@ -137,10 +146,13 @@ export function QuoteForm({ source, compact = false }: QuoteFormProps) {
         </Field>
 
         <Field>
-          <Label htmlFor={`damage-${source}`}>Damage description</Label>
+          <Label htmlFor={`damage-${source}`} required>
+            Damage description
+          </Label>
           <textarea
             id={`damage-${source}`}
             name="damage"
+            required
             rows={3}
             placeholder="Where on the windshield? Chip, crack, or full break? Approximate size?"
             className={cn(inputClass, "resize-y")}
@@ -183,14 +195,17 @@ function Field({ children }: { children: React.ReactNode }) {
 
 function Label({
   htmlFor,
+  required,
   children,
 }: {
   htmlFor: string;
+  required?: boolean;
   children: React.ReactNode;
 }) {
   return (
     <label htmlFor={htmlFor} className="text-sm font-medium">
       {children}
+      {required && <span className="ml-0.5 text-red-500">*</span>}
     </label>
   );
 }

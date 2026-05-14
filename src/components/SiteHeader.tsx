@@ -28,9 +28,9 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="text-lg font-extrabold tracking-tight md:text-xl">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 md:h-20">
+        <Link to="/" className="flex min-w-0 flex-1 items-center gap-2">
+          <span className="truncate text-sm font-bold tracking-tight sm:text-base md:text-lg">
             {siteConfig.brandName}
           </span>
         </Link>
@@ -97,13 +97,15 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
+          {/* Desktop / tablet: visually dominant phone link */}
           <a
             href={`tel:${siteConfig.phone.tel}`}
-            className="hidden items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow hover:bg-primary/90 sm:inline-flex"
+            className="hidden items-center gap-2 font-extrabold tracking-tight text-primary hover:text-primary/80 sm:inline-flex sm:text-2xl md:text-[32px]"
           >
-            <Phone className="h-4 w-4" />
-            {siteConfig.phone.display}
+            <Phone className="h-5 w-5 md:h-6 md:w-6" aria-hidden="true" />
+            <span>{siteConfig.phone.display}</span>
           </a>
+          {/* Mobile: icon button only — full call CTA lives in sticky bottom bar */}
           <a
             href={`tel:${siteConfig.phone.tel}`}
             aria-label={`Call ${siteConfig.phone.display}`}
